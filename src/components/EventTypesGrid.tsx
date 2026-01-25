@@ -1,92 +1,52 @@
-import { Heart, Crown, Cross, PartyPopper, GraduationCap, Briefcase } from "lucide-react";
-import { Card, CardContent } from "@/components/ui/card";
+import { Heart, Crown, Baby, GraduationCap, PartyPopper, Briefcase } from "lucide-react";
 
-const eventTypes = [
-  {
-    icon: Heart,
-    title: "Bodas",
-    description: "Invitaciones románticas y elegantes para el día más importante",
-    whatsappMessage: "Hola, me interesa una invitación digital para mi boda",
-  },
-  {
-    icon: Crown,
-    title: "XV Años",
-    description: "Diseños mágicos para celebrar esta fecha tan especial",
-    whatsappMessage: "Hola, me interesa una invitación digital para XV años",
-  },
-  {
-    icon: Cross,
-    title: "Bautizos",
-    description: "Invitaciones tiernas y espirituales para bendiciones",
-    whatsappMessage: "Hola, me interesa una invitación digital para un bautizo",
-  },
-  {
-    icon: PartyPopper,
-    title: "Fiestas Infantiles",
-    description: "Diseños divertidos y coloridos para los más pequeños",
-    whatsappMessage: "Hola, me interesa una invitación digital para fiesta infantil",
-  },
-  {
-    icon: GraduationCap,
-    title: "Graduaciones",
-    description: "Celebra los logros académicos con estilo",
-    whatsappMessage: "Hola, me interesa una invitación digital para graduación",
-  },
-  {
-    icon: Briefcase,
-    title: "Eventos Corporativos",
-    description: "Invitaciones profesionales para tu empresa",
-    whatsappMessage: "Hola, me interesa una invitación digital para evento corporativo",
-  },
+const events = [
+  { icon: Heart, title: "Bodas", desc: "Elegancia y romance", color: "from-pink-500/20 to-rose-500/20" },
+  { icon: Crown, title: "XV Años", desc: "Momentos mágicos", color: "from-purple-500/20 to-pink-500/20" },
+  { icon: Baby, title: "Bautizos", desc: "Ternura inolvidable", color: "from-blue-400/20 to-cyan-400/20" },
+  { icon: GraduationCap, title: "Graduaciones", desc: "Logros para celebrar", color: "from-emerald-500/20 to-teal-500/20" },
+  { icon: PartyPopper, title: "Fiestas", desc: "Diversión total", color: "from-orange-400/20 to-red-400/20" },
+  { icon: Briefcase, title: "Corporativos", desc: "Imagen profesional", color: "from-slate-500/20 to-gray-500/20" },
 ];
 
 const EventTypesGrid = () => {
-  const createWhatsAppLink = (message: string) => {
-    return `https://wa.me/5215512345678?text=${encodeURIComponent(message)}`;
-  };
-
   return (
     <section id="designs" className="py-20 px-4 bg-secondary/30">
       <div className="container mx-auto max-w-6xl">
-        <div className="text-center mb-16 space-y-4">
+        <div className="text-center mb-16 space-y-4 animate-fade-up">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground">
-            Diseños exclusivos para cada{" "}
-            <span className="text-gradient-gold">ocasión</span>
+            Diseños para cada <span className="text-gradient-gold">ocasión especial</span>
           </h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-            Cada evento merece una invitación única. Descubre nuestras colecciones especializadas.
+            Personalizamos cada detalle para que coincida con la temática de tu evento.
           </p>
         </div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
-          {eventTypes.map((event, index) => (
-            <a
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-8">
+          {events.map((event, index) => (
+            <div
               key={event.title}
-              href={createWhatsAppLink(event.whatsappMessage)}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="block group"
+              className="group relative overflow-hidden rounded-3xl bg-card border border-border hover:border-primary/50 transition-all duration-500 hover:shadow-2xl animate-fade-up cursor-pointer"
               style={{ animationDelay: `${index * 100}ms` }}
             >
-              <Card className="h-full border-2 border-transparent hover:border-primary/50 transition-all duration-300 hover-lift bg-card/80 backdrop-blur-sm overflow-hidden">
-                <CardContent className="p-8 text-center space-y-4">
-                  <div className="w-16 h-16 mx-auto bg-primary/10 rounded-2xl flex items-center justify-center group-hover:bg-primary/20 transition-colors duration-300">
-                    <event.icon className="w-8 h-8 text-primary" />
-                  </div>
-                  <h3 className="text-xl font-bold text-foreground group-hover:text-primary transition-colors">
+              {/* Background Gradient Effect */}
+              <div className={`absolute inset-0 bg-gradient-to-br ${event.color} opacity-0 group-hover:opacity-100 transition-opacity duration-500`} />
+              
+              <div className="relative p-6 md:p-10 flex flex-col items-center text-center space-y-4 z-10">
+                <div className="w-16 h-16 rounded-full bg-background shadow-md flex items-center justify-center group-hover:scale-110 group-hover:rotate-6 transition-transform duration-500">
+                  <event.icon className="w-8 h-8 text-primary" />
+                </div>
+                
+                <div>
+                  <h3 className="text-xl font-bold text-foreground group-hover:text-primary transition-colors duration-300">
                     {event.title}
                   </h3>
-                  <p className="text-muted-foreground text-sm">
-                    {event.description}
+                  <p className="text-sm text-muted-foreground group-hover:text-foreground/80 transition-colors duration-300">
+                    {event.desc}
                   </p>
-                  <div className="pt-2">
-                    <span className="text-primary text-sm font-medium opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                      Ver diseños →
-                    </span>
-                  </div>
-                </CardContent>
-              </Card>
-            </a>
+                </div>
+              </div>
+            </div>
           ))}
         </div>
       </div>
