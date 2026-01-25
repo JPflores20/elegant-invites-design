@@ -25,7 +25,7 @@ const Footer = () => {
       <div className="container mx-auto max-w-6xl relative z-10">
         <div className="flex flex-col items-center text-center space-y-10">
           
-          {/* LOGO ACTUALIZADO: Invito */}
+          {/* LOGO ACTUALIZADO: StellarDay */}
           <div className="space-y-4">
             <div className="flex items-center justify-center gap-2 mb-2">
               <div className="bg-primary/20 p-2 rounded-full">
@@ -33,7 +33,7 @@ const Footer = () => {
               </div>
             </div>
             <h3 className="text-2xl md:text-3xl font-bold font-serif tracking-tight">
-              Invito<span className="text-primary">.</span>
+              StellarDay<span className="text-primary">.</span>
             </h3>
             <p className="text-background/60 text-sm max-w-md mx-auto">
               La plataforma premium para crear invitaciones digitales inolvidables.
@@ -91,7 +91,7 @@ const Footer = () => {
 
             {/* COPYRIGHT ACTUALIZADO */}
             <p className="text-background/40 text-xs">
-              © {new Date().getFullYear()} Invito. Todos los derechos reservados.
+              © {new Date().getFullYear()} StellarDay. Todos los derechos reservados.
             </p>
           </div>
         </div>
