@@ -1,9 +1,11 @@
 import HeroSection from "@/components/HeroSection";
+import StatsSection from "@/components/StatsSection"; // Importar
 import EventTypesGrid from "@/components/EventTypesGrid";
+import PortfolioSection from "@/components/PortfolioSection"; // Importar
 import FeaturesSection from "@/components/FeaturesSection";
-import ProcessSection from "@/components/ProcessSection"; // Importar
+import ProcessSection from "@/components/ProcessSection";
 import PricingCards from "@/components/PricingCards";
-import FAQSection from "@/components/FAQSection"; // Importar
+import FAQSection from "@/components/FAQSection";
 import TestimonialsCarousel from "@/components/TestimonialsCarousel";
 import Footer from "@/components/Footer";
 
@@ -12,22 +14,22 @@ const Index = () => {
     <main className="min-h-screen">
       <HeroSection />
       
-      {/* Grid de eventos primero */}
+      {/* Las estadísticas justo después del Hero dan mucha autoridad */}
+      <StatsSection />
+      
       <EventTypesGrid />
       
-      {/* ¿Cómo funciona? Ideal para explicar el proceso antes de vender las características */}
+      {/* Mostrar ejemplos antes de explicar el proceso ayuda a enganchar */}
+      <PortfolioSection />
+      
       <ProcessSection />
       
-      {/* Características detalladas */}
       <FeaturesSection />
       
-      {/* Precios */}
       <PricingCards />
       
-      {/* Preguntas frecuentes para eliminar dudas antes de la compra */}
       <FAQSection />
       
-      {/* Testimonios para dar confianza final */}
       <TestimonialsCarousel />
       
       <Footer />
