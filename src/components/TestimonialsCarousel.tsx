@@ -32,9 +32,10 @@ const testimonials = [
 ];
 
 const TestimonialsCarousel = () => {
+  // loop: true permite que gire infinitamente
   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true, align: "center" });
   const [selectedIndex, setSelectedIndex] = useState(0);
-  const [isPaused, setIsPaused] = useState(false);
+  const [isPaused, setIsPaused] = useState(false); // Estado para pausar al hacer hover
 
   const scrollPrev = useCallback(() => emblaApi?.scrollPrev(), [emblaApi]);
   const scrollNext = useCallback(() => emblaApi?.scrollNext(), [emblaApi]);
@@ -50,29 +51,32 @@ const TestimonialsCarousel = () => {
     onSelect();
   }, [emblaApi, onSelect]);
 
-  // Auto-play functionality
+  // --- LÓGICA DE AUTO-PLAY ---
   useEffect(() => {
+    // Si no hay API o está pausado (mouse encima), no hacemos nada
     if (!emblaApi || isPaused) return;
 
+    // Configura el temporizador para avanzar cada 4 segundos (4000ms)
     const interval = setInterval(() => {
       emblaApi.scrollNext();
-    }, 5000);
+    }, 4000);
 
+    // Limpia el temporizador si el componente se desmonta o se pausa
     return () => clearInterval(interval);
   }, [emblaApi, isPaused]);
 
   return (
     <section 
-      id="testimonios"
+      id="testimonios" 
       className="py-20 px-4"
+      // Eventos para pausar/reanudar
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
     >
       <div className="container mx-auto max-w-5xl">
         <div className="text-center mb-16 space-y-4 animate-fade-up">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground">
-            Lo que dicen{" "}
-            <span className="text-gradient-gold">nuestros clientes</span>
+            Lo que dicen <span className="text-gradient-gold">nuestros clientes</span>
           </h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
             Historias reales de momentos inolvidables
@@ -87,7 +91,7 @@ const TestimonialsCarousel = () => {
                   key={index}
                   className="flex-[0_0_100%] min-w-0 md:flex-[0_0_80%] lg:flex-[0_0_70%] px-4"
                 >
-                  <div className="bg-card/80 backdrop-blur-sm rounded-3xl p-8 md:p-12 border border-border text-center relative">
+                  <div className="bg-card/80 backdrop-blur-sm rounded-3xl p-8 md:p-12 border border-border text-center relative hover:border-primary/30 transition-colors duration-300">
                     {/* Decorative quote */}
                     <Quote className="w-12 h-12 text-primary/20 absolute top-6 left-6" />
                     
@@ -110,7 +114,7 @@ const TestimonialsCarousel = () => {
             variant="outline"
             size="icon"
             onClick={scrollPrev}
-            className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 md:-translate-x-6 rounded-full bg-card/90 backdrop-blur-sm border-border hover:border-primary/50 hover:bg-card z-10"
+            className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 md:-translate-x-6 rounded-full bg-card/90 backdrop-blur-sm border-border hover:border-primary/50 hover:bg-card z-10 hidden md:flex"
           >
             <ChevronLeft className="w-5 h-5" />
           </Button>
@@ -118,7 +122,7 @@ const TestimonialsCarousel = () => {
             variant="outline"
             size="icon"
             onClick={scrollNext}
-            className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 md:translate-x-6 rounded-full bg-card/90 backdrop-blur-sm border-border hover:border-primary/50 hover:bg-card z-10"
+            className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 md:translate-x-6 rounded-full bg-card/90 backdrop-blur-sm border-border hover:border-primary/50 hover:bg-card z-10 hidden md:flex"
           >
             <ChevronRight className="w-5 h-5" />
           </Button>
