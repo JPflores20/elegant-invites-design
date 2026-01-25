@@ -81,21 +81,41 @@ const HeroSection = () => {
             </div>
           </div>
 
-          {/* Phone Mockup (Igual que antes) */}
+          {/* Phone Mockup con Iframe Escalado */}
           <div className="relative flex justify-center lg:justify-end animate-fade-up" style={{ animationDelay: "0.2s" }}>
-            <div className="relative w-64 md:w-80 h-[500px] md:h-[600px] bg-foreground rounded-[3rem] p-3 shadow-2xl animate-float border-[6px] border-foreground/5">
-                <div className="w-full h-full bg-gradient-to-br from-primary/20 via-background to-primary/10 rounded-[2.5rem] overflow-hidden flex items-center justify-center relative">
-                  <div className="text-center p-6 space-y-4 relative z-10">
-                    <div className="w-16 h-16 mx-auto bg-primary/20 rounded-full flex items-center justify-center animate-pulse">
-                      <Sparkles className="w-8 h-8 text-primary" />
-                    </div>
-                    <p className="font-serif text-2xl text-foreground">Ana & Diego</p>
-                    <p className="text-muted-foreground text-sm uppercase tracking-widest">Sábado 24 . 08 . 2025</p>
-                    <div className="pt-4"><div className="h-px w-24 mx-auto bg-primary/30" /></div>
-                    <p className="text-xs text-muted-foreground italic px-4">"Nuestra historia comienza aquí..."</p>
+            {/* Aumenté ligeramente el ancho del teléfono para dar más aire */}
+            <div className="relative w-72 md:w-80 h-[550px] md:h-[650px] bg-foreground rounded-[3rem] p-3 shadow-2xl animate-float border-[6px] border-foreground/5">
+                
+                {/* Contenedor de la pantalla */}
+                <div className="w-full h-full bg-background rounded-[2.5rem] overflow-hidden relative">
+                  
+                  {/* AQUÍ ESTÁ EL TRUCO: Contenedor de escalado */}
+                  {/* Explicación técnica:
+                      - El teléfono tiene ~264px de ancho interno (en móvil) y ~296px (en desktop).
+                      - La invitación necesita 360px para verse bien.
+                      - Forzamos el ancho a 360px y usamos scale() para encogerlo.
+                      - w-[360px]: Ancho de un celular estándar.
+                      - scale-[0.73]: 264px / 360px = 0.733
+                      - scale-[0.82]: 296px / 360px = 0.822
+                  */}
+                  <div className="absolute top-0 left-0 origin-top-left w-[360px] h-[137%] md:h-[122%] scale-[0.73] md:scale-[0.82]">
+                    <iframe 
+                        src="/invitacion-boda?autoScroll=true" 
+                        className="w-full h-full border-none"
+                        title="Vista previa Invitación"
+                        style={{ 
+                            scrollbarWidth: 'none',
+                            msOverflowStyle: 'none',
+                        }}
+                    />
                   </div>
+                  
+                  {/* Capa invisible para evitar interacción */}
+                  <div className="absolute inset-0 bg-transparent pointer-events-auto" />
                 </div>
-                <div className="absolute top-6 left-1/2 -translate-x-1/2 w-24 h-6 bg-foreground rounded-full z-20" />
+                
+                {/* Notch / Isla dinámica */}
+                <div className="absolute top-6 left-1/2 -translate-x-1/2 w-24 h-6 bg-foreground rounded-full z-20 pointer-events-none" />
             </div>
           </div>
 

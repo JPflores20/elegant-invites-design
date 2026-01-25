@@ -1,7 +1,10 @@
+// src/pages/Index.tsx
+
+import Navbar from "@/components/Navbar"; // <--- 1. Importar el componente
 import HeroSection from "@/components/HeroSection";
-import StatsSection from "@/components/StatsSection"; // Importar
+import StatsSection from "@/components/StatsSection";
 import EventTypesGrid from "@/components/EventTypesGrid";
-import PortfolioSection from "@/components/PortfolioSection"; // Importar
+import PortfolioSection from "@/components/PortfolioSection";
 import FeaturesSection from "@/components/FeaturesSection";
 import ProcessSection from "@/components/ProcessSection";
 import PricingCards from "@/components/PricingCards";
@@ -12,14 +15,15 @@ import Footer from "@/components/Footer";
 const Index = () => {
   return (
     <main className="min-h-screen">
+      {/* 2. Agregar el componente Navbar aquí, al principio */}
+      <Navbar /> 
+      
       <HeroSection />
       
-      {/* Las estadísticas justo después del Hero dan mucha autoridad */}
       <StatsSection />
       
       <EventTypesGrid />
       
-      {/* Mostrar ejemplos antes de explicar el proceso ayuda a enganchar */}
       <PortfolioSection />
       
       <ProcessSection />
