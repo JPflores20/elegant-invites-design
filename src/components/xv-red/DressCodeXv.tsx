@@ -1,9 +1,8 @@
 import { motion } from "framer-motion";
-import { Sparkles, Shirt, Ban } from "lucide-react";
+import { Sparkles, Shirt, Ban, Gem } from "lucide-react";
 
 const DressCodeXv = () => {
   return (
-    // Mantenemos el fondo rojo oscuro para impacto visual
     <section className="py-24 px-4 relative overflow-hidden bg-gradient-to-b from-red-900 to-red-950">
        <div className="absolute inset-0 opacity-10 bg-[url('https://www.transparenttextures.com/patterns/dark-mosaic.png')] mix-blend-overlay" />
 
@@ -14,7 +13,7 @@ const DressCodeXv = () => {
           transition={{ duration: 0.8 }}
           className="mb-16"
         >
-          <Shirt className="w-12 h-12 mx-auto mb-6 text-red-300 opacity-80" />
+          <Shirt className="w-12 h-12 mx-auto mb-6 text-red-300 opacity-80" strokeWidth={1} />
           <h2 className="font-serif text-4xl md:text-5xl mb-6 tracking-wide drop-shadow-lg">
             Código de Vestimenta
           </h2>
@@ -62,13 +61,19 @@ const DressCodeXv = () => {
           >
              <h3 className="font-serif text-2xl mb-8 text-red-200">Sugerencias</h3>
              <ul className="space-y-6 text-left md:text-center text-red-100/90">
-                <li className="flex items-center gap-4 md:justify-center p-4 rounded-xl bg-red-950/40 border border-red-900/50">
-                    <span className="text-3xl">👗</span>
-                    <span>Vestido largo (tonos oscuros o metálicos)</span>
+                <li className="flex items-center gap-4 md:justify-center p-4 rounded-xl bg-red-950/40 border border-red-900/50 hover:bg-red-900/60 transition-colors">
+                    <Gem className="w-8 h-8 text-red-200" strokeWidth={1.5} />
+                    <div className="text-left md:text-left">
+                        <span className="block font-bold text-lg">Vestido largo</span>
+                        <span className="text-sm opacity-70">Tonos oscuros o metálicos</span>
+                    </div>
                 </li>
-                <li className="flex items-center gap-4 md:justify-center p-4 rounded-xl bg-red-950/40 border border-red-900/50">
-                    <span className="text-3xl">🤵</span>
-                    <span>Traje formal oscuro y corbata</span>
+                <li className="flex items-center gap-4 md:justify-center p-4 rounded-xl bg-red-950/40 border border-red-900/50 hover:bg-red-900/60 transition-colors">
+                    <Shirt className="w-8 h-8 text-red-200" strokeWidth={1.5} />
+                    <div className="text-left md:text-left">
+                        <span className="block font-bold text-lg">Traje formal</span>
+                        <span className="text-sm opacity-70">Oscuro y corbata</span>
+                    </div>
                 </li>
              </ul>
           </motion.div>

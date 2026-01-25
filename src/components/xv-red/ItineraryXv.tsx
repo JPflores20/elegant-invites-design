@@ -1,12 +1,13 @@
 import { motion } from "framer-motion";
+import { Church, Wine, Sparkles, Music, Utensils } from "lucide-react";
 
 const ItineraryXv = () => {
   const events = [
-    { time: "5:00 PM", title: "Misa de Acción de Gracias", icon: "⛪" },
-    { time: "7:00 PM", title: "Cóctel de Bienvenida", icon: "🥂" },
-    { time: "8:00 PM", title: "Entrada Triunfal", icon: "✨" },
-    { time: "9:00 PM", title: "Vals con Papá", icon: "💃" },
-    { time: "10:00 PM", title: "Cena & Baile", icon: "🍽️" },
+    { time: "5:00 PM", title: "Misa de Acción de Gracias", icon: Church },
+    { time: "7:00 PM", title: "Cóctel de Bienvenida", icon: Wine },
+    { time: "8:00 PM", title: "Entrada Triunfal", icon: Sparkles },
+    { time: "9:00 PM", title: "Vals con Papá", icon: Music },
+    { time: "10:00 PM", title: "Cena & Baile", icon: Utensils },
   ];
 
   return (
@@ -33,7 +34,13 @@ const ItineraryXv = () => {
               <div className="absolute left-[-9px] md:left-1/2 md:-translate-x-1/2 top-1 w-5 h-5 rounded-full bg-red-500 border-4 border-red-900 shadow-[0_0_15px_rgba(239,68,68,0.8)] z-10" />
               
               <div className="md:w-full md:max-w-md group cursor-default">
-                <span className="text-4xl mb-4 block filter drop-shadow-md group-hover:scale-110 transition-transform duration-300">{event.icon}</span>
+                {/* ICONO MINIMALISTA */}
+                <div className="mb-4 flex md:justify-center">
+                  <div className="p-3 bg-red-900/40 rounded-full border border-red-500/20 shadow-lg group-hover:scale-110 transition-transform duration-300">
+                    <event.icon className="w-8 h-8 text-white/90" strokeWidth={1.5} />
+                  </div>
+                </div>
+                
                 <h3 className="text-2xl font-bold text-white mb-2 tracking-wide">{event.title}</h3>
                 <div className="inline-block bg-red-900/40 px-4 py-1 rounded-full border border-red-500/30">
                     <p className="text-red-200 font-mono text-lg">{event.time}</p>
