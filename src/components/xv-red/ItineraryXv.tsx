@@ -10,32 +10,34 @@ const ItineraryXv = () => {
   ];
 
   return (
-    <section className="py-24 px-4 bg-[#0f0404]">
+    <section className="py-24 px-4">
       <div className="container mx-auto max-w-2xl text-center">
         <motion.h2 
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          className="font-serif text-4xl md:text-5xl text-white mb-16 drop-shadow-md"
+          className="font-serif text-4xl md:text-6xl text-white mb-20 drop-shadow-md"
         >
           Itinerario
         </motion.h2>
 
-        <div className="relative border-l border-red-900/30 ml-4 md:ml-auto md:mx-auto space-y-12">
+        <div className="relative border-l-2 border-red-300/30 ml-4 md:ml-auto md:mx-auto space-y-16">
           {events.map((event, index) => (
             <motion.div 
               key={index}
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ delay: index * 0.1 }}
-              className="relative pl-8 md:pl-0 flex flex-col md:items-center"
+              className="relative pl-10 md:pl-0 flex flex-col md:items-center"
             >
-              {/* Punto de tiempo */}
-              <div className="absolute left-[-5px] md:left-1/2 md:-translate-x-1/2 top-2 w-3 h-3 rounded-full bg-red-600 shadow-[0_0_10px_rgba(220,38,38,0.8)]" />
+              {/* Punto de tiempo brillante */}
+              <div className="absolute left-[-9px] md:left-1/2 md:-translate-x-1/2 top-1 w-5 h-5 rounded-full bg-red-500 border-4 border-red-900 shadow-[0_0_15px_rgba(239,68,68,0.8)] z-10" />
               
-              <div className="bg-[#1c0808] border border-red-900/30 p-6 rounded-2xl md:w-full md:max-w-md hover:border-red-700/50 transition-colors">
-                <span className="text-3xl mb-3 block">{event.icon}</span>
-                <h3 className="text-xl font-bold text-red-50 mb-1">{event.title}</h3>
-                <p className="text-red-400 font-serif text-lg">{event.time}</p>
+              <div className="md:w-full md:max-w-md group cursor-default">
+                <span className="text-4xl mb-4 block filter drop-shadow-md group-hover:scale-110 transition-transform duration-300">{event.icon}</span>
+                <h3 className="text-2xl font-bold text-white mb-2 tracking-wide">{event.title}</h3>
+                <div className="inline-block bg-red-900/40 px-4 py-1 rounded-full border border-red-500/30">
+                    <p className="text-red-200 font-mono text-lg">{event.time}</p>
+                </div>
               </div>
             </motion.div>
           ))}

@@ -17,7 +17,7 @@ const GiftsSectionXv = () => {
         title: "¡Copiado!",
         description: `${fieldName} listo para pegar.`,
         duration: 3000,
-        className: "bg-red-950 border-red-800 text-white" // Toast personalizado
+        className: "bg-red-900 border-red-500 text-white"
       });
     } catch (err) {
       toast({ title: "Error", description: "Copia manual requerida.", variant: "destructive" });
@@ -25,17 +25,14 @@ const GiftsSectionXv = () => {
   };
 
   return (
-    <section className="py-24 px-4 bg-[#140505] relative overflow-hidden">
-      {/* Fondo decorativo */}
-      <div className="absolute top-0 right-0 w-96 h-96 bg-red-900/10 rounded-full blur-[100px] pointer-events-none" />
-
+    <section className="py-24 px-4 relative overflow-hidden">
       <div className="container mx-auto max-w-4xl relative z-10">
         <div className="text-center mb-16 space-y-6">
-          <div className="w-20 h-20 bg-red-950/50 rounded-full flex items-center justify-center mx-auto border border-red-900">
-            <Gift className="w-10 h-10 text-red-400" />
+          <div className="w-24 h-24 bg-red-500/20 rounded-full flex items-center justify-center mx-auto border border-red-400/30 shadow-[0_0_30px_rgba(220,38,38,0.3)]">
+            <Gift className="w-12 h-12 text-white" />
           </div>
           <h2 className="text-4xl md:text-5xl font-serif text-white">Mesa de Regalos</h2>
-          <p className="text-red-200/60 text-lg max-w-2xl mx-auto">
+          <p className="text-red-100 text-xl max-w-2xl mx-auto font-light">
             Su presencia es mi mayor regalo. Si desean tener un detalle conmigo:
           </p>
         </div>
@@ -45,13 +42,13 @@ const GiftsSectionXv = () => {
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
-            className="bg-[#1F0A0A] p-8 rounded-3xl border border-red-900/40 text-center flex flex-col items-center justify-center space-y-4 hover:border-red-700/60 transition-colors"
+            className="bg-white/10 backdrop-blur-lg p-8 rounded-[2rem] border border-white/10 text-center flex flex-col items-center justify-center space-y-4 hover:bg-white/15 transition-colors shadow-xl"
           >
-            <div className="w-12 h-12 bg-red-900/30 rounded-full flex items-center justify-center mb-2">
-              <Gift className="w-6 h-6 text-red-300" />
+            <div className="w-14 h-14 bg-red-600/30 rounded-full flex items-center justify-center mb-2">
+              <Gift className="w-7 h-7 text-white" />
             </div>
-            <h3 className="text-2xl font-serif text-red-50">Lluvia de Sobres</h3>
-            <p className="text-red-200/50">
+            <h3 className="text-2xl font-serif text-white font-bold">Lluvia de Sobres</h3>
+            <p className="text-red-100/90">
               En la recepción encontrarán un buzón para depositar sus muestras de cariño.
             </p>
           </motion.div>
@@ -61,32 +58,32 @@ const GiftsSectionXv = () => {
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
             transition={{ delay: 0.1 }}
-            className="bg-[#1F0A0A] p-8 rounded-3xl border border-red-900/40 space-y-6"
+            className="bg-white/10 backdrop-blur-lg p-8 rounded-[2rem] border border-white/10 space-y-6 hover:bg-white/15 transition-colors shadow-xl"
           >
             <div className="text-center">
-              <div className="w-12 h-12 bg-red-900/30 rounded-full flex items-center justify-center mx-auto mb-4">
-                <CreditCard className="w-6 h-6 text-red-300" />
+              <div className="w-14 h-14 bg-red-600/30 rounded-full flex items-center justify-center mx-auto mb-4">
+                <CreditCard className="w-7 h-7 text-white" />
               </div>
-              <h3 className="text-2xl font-serif text-red-50">Transferencia</h3>
+              <h3 className="text-2xl font-serif text-white font-bold">Transferencia</h3>
             </div>
 
             <div className="space-y-4">
-              <div className="bg-black/30 p-4 rounded-2xl flex items-center justify-between border border-red-900/20">
+              <div className="bg-black/20 p-4 rounded-2xl flex items-center justify-between border border-white/10">
                 <div className="overflow-hidden">
-                  <p className="text-xs text-red-400 uppercase tracking-wider mb-1">Cuenta</p>
-                  <p className="font-mono text-red-50 text-lg truncate">1234 5678 9012</p>
+                  <p className="text-xs text-red-200 uppercase tracking-wider mb-1">Cuenta</p>
+                  <p className="font-mono text-white text-xl truncate">1234 5678 9012</p>
                 </div>
-                <Button variant="ghost" size="icon" className="text-red-400 hover:text-white hover:bg-red-900/50" onClick={() => handleCopy("1234 5678 9012", "Cuenta")}>
+                <Button variant="ghost" size="icon" className="text-white hover:bg-white/20" onClick={() => handleCopy("1234 5678 9012", "Cuenta")}>
                   {copiedField === "Cuenta" ? <Check className="w-5 h-5 text-green-400" /> : <Copy className="w-5 h-5" />}
                 </Button>
               </div>
 
-              <div className="bg-black/30 p-4 rounded-2xl flex items-center justify-between border border-red-900/20">
+              <div className="bg-black/20 p-4 rounded-2xl flex items-center justify-between border border-white/10">
                 <div className="overflow-hidden">
-                  <p className="text-xs text-red-400 uppercase tracking-wider mb-1">CLABE</p>
-                  <p className="font-mono text-red-50 text-lg truncate">012 345 67890123</p>
+                  <p className="text-xs text-red-200 uppercase tracking-wider mb-1">CLABE</p>
+                  <p className="font-mono text-white text-xl truncate">012 345 6789</p>
                 </div>
-                <Button variant="ghost" size="icon" className="text-red-400 hover:text-white hover:bg-red-900/50" onClick={() => handleCopy("01234567890123", "CLABE")}>
+                <Button variant="ghost" size="icon" className="text-white hover:bg-white/20" onClick={() => handleCopy("01234567890123", "CLABE")}>
                   {copiedField === "CLABE" ? <Check className="w-5 h-5 text-green-400" /> : <Copy className="w-5 h-5" />}
                 </Button>
               </div>
