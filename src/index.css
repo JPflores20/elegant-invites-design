@@ -86,3 +86,55 @@
   .animate-blink { animation: blink 1s step-end infinite; }
   @keyframes blink { 50% { opacity: 0; } }
 }
+
+/* --- ESTILOS ESPECÍFICOS PARA LA BODA VINTAGE --- */
+/* Se activa solo cuando el contenedor tiene el color de fondo específico de la boda */
+
+.min-h-screen[style*="--background: 40 30% 94%"] {
+  
+  /* 1. Tarjetas estilo Papel Antiguo */
+  .glass-card, 
+  .bg-white,
+  .bg-white\/90,
+  .bg-white\/95 {
+    background-color: rgba(253, 251, 247, 0.75) !important; /* Crema translúcido */
+    border: 1px solid rgba(166, 144, 118, 0.2) !important; /* Borde café muy suave */
+    box-shadow: 
+      0 10px 30px -5px rgba(74, 59, 50, 0.08), /* Sombra cálida */
+      inset 0 0 60px rgba(255, 255, 255, 0.6) !important; /* Brillo interior */
+    backdrop-filter: blur(10px);
+  }
+
+  /* 2. Inputs y Formularios: Tono arena/beige */
+  input, select, textarea {
+    background-color: rgba(255, 255, 255, 0.6) !important;
+    border-color: rgba(166, 144, 118, 0.3) !important;
+    color: #4A3B32 !important;
+  }
+  
+  input:focus, select:focus, textarea:focus {
+    border-color: #8B7355 !important;
+    box-shadow: 0 0 0 2px rgba(139, 115, 85, 0.2) !important;
+  }
+  
+  input::placeholder, textarea::placeholder {
+    color: rgba(74, 59, 50, 0.4) !important;
+  }
+
+  /* 3. Botones Primarios: Estilo Bronce */
+  button[class*="bg-primary"] {
+    background-color: #8B7355 !important; /* Bronce */
+    color: #FFF !important;
+    transition: all 0.3s ease;
+  }
+  button[class*="bg-primary"]:hover {
+    background-color: #6D5A43 !important; /* Café más oscuro */
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(109, 90, 67, 0.3);
+  }
+
+  /* 4. Textos Muted */
+  .text-muted-foreground {
+    color: #8C7E74 !important; /* Taupe */
+  }
+}
