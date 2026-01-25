@@ -6,22 +6,24 @@ const examples = [
     title: "Boda Minimalista",
     category: "Bodas",
     color: "bg-[#F5E6D3]", // Beige
-    image: "linear-gradient(45deg, #F5E6D3 0%, #FFF 100%)",
-    link: "/invitacion-boda", // <--- ENLACE ACTIVO A TU NUEVA RUTA
+    // CAMBIO AQUÍ: Reemplazamos el gradiente por una imagen real
+    image: "url('https://images.unsplash.com/photo-1606800052052-a08af7148866?q=80&w=800&auto=format&fit=crop')",
+    link: "/invitacion-boda",
   },
   {
     title: "XV Años Neón",
     category: "XV Años",
     color: "bg-[#2D1B69]", // Purple
+    // También podemos poner imágenes a los otros si quieres luego
     image: "linear-gradient(45deg, #2D1B69 0%, #9D4EDD 100%)",
-    link: "#", // Sin enlace todavía
+    link: "#",
   },
   {
     title: "Bautizo Floral",
     category: "Bautizos",
     color: "bg-[#E0F7FA]", // Light Blue
     image: "linear-gradient(45deg, #E0F7FA 0%, #B2EBF2 100%)",
-    link: "#", // Sin enlace todavía
+    link: "#",
   },
 ];
 
@@ -48,28 +50,26 @@ const PortfolioSection = () => {
 
         <div className="grid md:grid-cols-3 gap-8">
           {examples.map((item, index) => (
-            // Usamos <a> para que funcione como enlace real
             <a 
               key={index}
               href={item.link}
-              // Si el link no es "#", abrir en pestaña nueva (_blank)
               target={item.link !== "#" ? "_blank" : "_self"}
               rel="noopener noreferrer"
               className="block group relative h-[400px] rounded-3xl overflow-hidden cursor-pointer shadow-lg hover:shadow-2xl transition-all duration-500 animate-fade-up"
               style={{ animationDelay: `${index * 150}ms` }}
             >
-              {/* Fondo simulado de la invitación */}
+              {/* Fondo de la tarjeta con imagen/gradiente */}
               <div 
-                className="absolute inset-0 transition-transform duration-700 group-hover:scale-110"
-                style={{ background: item.image }}
+                className="absolute inset-0 transition-transform duration-700 group-hover:scale-110 bg-cover bg-center"
+                style={{ background: item.image, backgroundSize: 'cover', backgroundPosition: 'center' }}
               />
               
-              {/* Overlay oscuro al pasar el mouse */}
-              <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-500" />
+              {/* Overlay oscuro al pasar el mouse (para que se lea el texto) */}
+              <div className="absolute inset-0 bg-black/10 group-hover:bg-black/30 transition-colors duration-500" />
 
               {/* Contenido flotante */}
               <div className="absolute bottom-0 left-0 w-full p-8 translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
-                <div className="bg-white/90 backdrop-blur-md p-6 rounded-2xl shadow-lg flex justify-between items-center">
+                <div className="bg-white/95 backdrop-blur-md p-6 rounded-2xl shadow-lg flex justify-between items-center">
                   <div>
                     <span className="text-xs font-bold text-primary uppercase tracking-wider">
                       {item.category}
@@ -78,7 +78,6 @@ const PortfolioSection = () => {
                       {item.title}
                     </h3>
                   </div>
-                  {/* Flecha que aparece al hacer hover */}
                   <div className="bg-primary/10 p-2 rounded-full opacity-0 group-hover:opacity-100 transition-opacity">
                     <ArrowRight className="w-5 h-5 text-primary" />
                   </div>

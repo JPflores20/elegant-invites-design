@@ -1,13 +1,13 @@
-import HeroSectionInv from "@/components/HeroSectionInv";
-import CountdownTimer from "@/components/CountdownTimer";
-import LocationCards from "@/components/LocationCards";
-import Itinerary from "@/components/Itinerary";
-import DressCode from "@/components/DressCode";
-import Gallery from "@/components/Gallery";
-import GiftsSection from "@/components/GiftsSection";
-import RSVPForm from "@/components/RSVPForm";
-import FooterInv from "@/components/FooterInv";
-import MusicPlayer from "@/components/MusicPlayer";
+import HeroSectionInv from "@/components/wedding/HeroSectionInv";
+import CountdownTimer from "@/components/wedding/CountdownTimer";
+import LocationCards from "@/components/wedding/LocationCards";
+import Itinerary from "@/components/wedding/Itinerary";
+import DressCode from "@/components/wedding/DressCode";
+import Gallery from "@/components/wedding/Gallery";
+import GiftsSection from "@/components/wedding/GiftsSection";
+import RSVPForm from "@/components/wedding/RSVPForm";
+import FooterInv from "@/components/wedding/FooterInv";
+import MusicPlayer from "@/components/wedding/MusicPlayer";
 
 const WeddingInvite = () => {
   return (
@@ -25,7 +25,7 @@ const WeddingInvite = () => {
       <GiftsSection />
       <RSVPForm />
       
-      {/* Footer específico de la invitación (renombrado para no chocar con el principal) */}
+      {/* Footer específico de la invitación */}
       <FooterInv />
     </div>
   );

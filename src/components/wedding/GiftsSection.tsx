@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button";
 import { useToast } from "@/hooks/use-toast";
 
 const GiftsSection = () => {
-  const [copied, setCopied] = useState(false);
+  const [copiedField, setCopiedField] = useState<string | null>(null);
   const { toast } = useToast();
 
   const bankDetails = {
@@ -16,14 +16,57 @@ const GiftsSection = () => {
     clabe: "012345678901234567"
   };
 
-  const handleCopy = (text: string, label: string) => {
-    navigator.clipboard.writeText(text);
-    setCopied(true);
-    toast({
-      title: "¡Copiado!",
-      description: `${label} copiado al portapapeles`,
-    });
-    setTimeout(() => setCopied(false), 2000);
+  // Función robusta de copiado (funciona en PC, Móvil y Red Local)
+  const handleCopy = async (text: string, label: string) => {
+    const copyToClipboard = async (str: string) => {
+      // Intento 1: API Moderna (Requiere HTTPS o Localhost)
+      if (navigator.clipboard && window.isSecureContext) {
+        return navigator.clipboard.writeText(str);
+      }
+
+      // Intento 2: Método Clásico (Funciona en HTTP / Red Local / Móviles antiguos)
+      return new Promise<void>((resolve, reject) => {
+        const textArea = document.createElement("textarea");
+        textArea.value = str;
+        textArea.style.position = "fixed";
+        textArea.style.left = "-999999px";
+        textArea.style.top = "-999999px";
+        document.body.appendChild(textArea);
+        textArea.focus();
+        textArea.select();
+
+        try {
+          document.execCommand('copy');
+          textArea.remove();
+          resolve();
+        } catch (error) {
+          textArea.remove();
+          reject(error);
+        }
+      });
+    };
+
+    try {
+      await copyToClipboard(text);
+      
+      // Éxito
+      setCopiedField(label);
+      toast({
+        title: "¡Copiado!",
+        description: `${label} copiado al portapapeles`,
+        duration: 3000,
+      });
+
+      setTimeout(() => setCopiedField(null), 2000);
+    } catch (err) {
+      // Error real
+      console.error("Error al copiar:", err);
+      toast({
+        variant: "destructive",
+        title: "Error",
+        description: "No se pudo copiar. Intenta hacerlo manualmente.",
+      });
+    }
   };
 
   const giftRegistries = [
@@ -115,6 +158,8 @@ const GiftsSection = () => {
                     <span className="text-muted-foreground font-body text-sm">Beneficiario</span>
                     <span className="font-body font-medium">{bankDetails.name}</span>
                   </div>
+                  
+                  {/* CUENTA */}
                   <div className="flex justify-between items-center">
                     <span className="text-muted-foreground font-body text-sm">Cuenta</span>
                     <div className="flex items-center gap-2">
@@ -122,13 +167,19 @@ const GiftsSection = () => {
                       <Button
                         variant="ghost"
                         size="icon"
-                        className="h-8 w-8"
+                        className="h-8 w-8 hover:text-primary hover:bg-primary/10 active:scale-95 transition-transform"
                         onClick={() => handleCopy(bankDetails.account.replace(/\s/g, ""), "Número de cuenta")}
                       >
-                        {copied ? <Check className="h-4 w-4 text-green-500" /> : <Copy className="h-4 w-4" />}
+                        {copiedField === "Número de cuenta" ? (
+                          <Check className="h-4 w-4 text-green-500 animate-in zoom-in" />
+                        ) : (
+                          <Copy className="h-4 w-4" />
+                        )}
                       </Button>
                     </div>
                   </div>
+
+                  {/* CLABE */}
                   <div className="flex justify-between items-center">
                     <span className="text-muted-foreground font-body text-sm">CLABE</span>
                     <div className="flex items-center gap-2">
@@ -136,10 +187,14 @@ const GiftsSection = () => {
                       <Button
                         variant="ghost"
                         size="icon"
-                        className="h-8 w-8"
+                        className="h-8 w-8 hover:text-primary hover:bg-primary/10 active:scale-95 transition-transform"
                         onClick={() => handleCopy(bankDetails.clabe, "CLABE")}
                       >
-                        {copied ? <Check className="h-4 w-4 text-green-500" /> : <Copy className="h-4 w-4" />}
+                        {copiedField === "CLABE" ? (
+                          <Check className="h-4 w-4 text-green-500 animate-in zoom-in" />
+                        ) : (
+                          <Copy className="h-4 w-4" />
+                        )}
                       </Button>
                     </div>
                   </div>
