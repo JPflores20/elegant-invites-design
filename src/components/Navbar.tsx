@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Menu, X, Sparkles } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const Navbar = () => {
@@ -53,11 +53,13 @@ const Navbar = () => {
       } bg-background/80 backdrop-blur-md`}
     >
       <div className="container mx-auto px-4 h-16 flex items-center justify-between">
-        {/* LOGO ACTUALIZADO: Invito */}
-        <div className="flex items-center gap-2">
-          <div className="bg-primary/10 p-2 rounded-full">
-            <Sparkles className="w-5 h-5 text-primary" />
-          </div>
+        {/* LOGO: Usa las dos estrellas doradas (logo.svg) */}
+        <div className="flex items-center gap-3">
+          <img 
+            src="/logo.svg?v=4" 
+            alt="Logo Invito" 
+            className="w-8 h-8 md:w-10 md:h-10 object-contain hover:scale-110 transition-transform duration-300"
+          />
           <span className="font-serif text-xl font-bold text-foreground tracking-tight">
             Invito<span className="text-primary">.</span>
           </span>

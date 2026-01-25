@@ -7,19 +7,28 @@ const HeroSection = () => {
   };
 
   return (
-    <section id="inicio" className="relative min-h-screen flex items-center justify-center overflow-hidden px-4 py-20 pt-28">
-      {/* Decorative background elements */}
-      <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute top-20 left-10 w-72 h-72 bg-primary/10 rounded-full blur-3xl animate-float" />
-        <div className="absolute bottom-20 right-10 w-96 h-96 bg-primary/5 rounded-full blur-3xl animate-float" style={{ animationDelay: "-3s" }} />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-gradient-radial from-primary/5 to-transparent rounded-full" />
+    <section 
+      id="inicio" 
+      // CAMBIO AQUÍ: Añadimos el fondo gradiente elegante
+      className="relative min-h-screen flex items-center justify-center overflow-hidden px-4 py-20 pt-28 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-primary/10 via-background to-background"
+    >
+      {/* Decorative background elements (Esferas flotantes) */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        {/* Esfera superior izquierda */}
+        <div className="absolute top-0 left-0 w-[500px] h-[500px] bg-primary/5 rounded-full blur-[100px] animate-float opacity-60" />
+        
+        {/* Esfera inferior derecha */}
+        <div className="absolute bottom-0 right-0 w-[600px] h-[600px] bg-primary/10 rounded-full blur-[120px] animate-float opacity-60" style={{ animationDelay: "-4s" }} />
+        
+        {/* Luz central sutil */}
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-primary/5 rounded-full blur-3xl" />
       </div>
 
       <div className="container mx-auto max-w-6xl relative z-10">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Text Content */}
           <div className="text-center lg:text-left space-y-8 animate-fade-up">
-            <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 rounded-full text-primary text-sm font-medium">
+            <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 rounded-full text-primary text-sm font-medium backdrop-blur-sm border border-primary/20">
               <Sparkles className="w-4 h-4" />
               <span>Invitaciones Digitales Premium</span>
             </div>
@@ -44,7 +53,7 @@ const HeroSection = () => {
               <Button 
                 variant="outline"
                 size="lg"
-                className="border-2 border-primary text-primary hover:bg-primary/10 px-8 py-6 text-lg font-medium rounded-full hover:-translate-y-1 duration-300"
+                className="border-2 border-primary text-primary hover:bg-primary/10 px-8 py-6 text-lg font-medium rounded-full hover:-translate-y-1 duration-300 bg-background/50 backdrop-blur-sm"
                 asChild
               >
                 <a 
@@ -62,30 +71,38 @@ const HeroSection = () => {
           <div className="relative flex justify-center lg:justify-end animate-fade-up" style={{ animationDelay: "0.2s" }}>
             <div className="relative">
               {/* Phone frame */}
-              <div className="relative w-64 md:w-80 h-[500px] md:h-[600px] bg-foreground rounded-[3rem] p-3 shadow-2xl animate-float">
-                <div className="w-full h-full bg-gradient-to-br from-primary/20 via-background to-primary/10 rounded-[2.5rem] overflow-hidden flex items-center justify-center">
-                  {/* Screen content placeholder */}
-                  <div className="text-center p-6 space-y-4">
-                    <div className="w-16 h-16 mx-auto bg-primary/20 rounded-full flex items-center justify-center">
+              <div className="relative w-64 md:w-80 h-[500px] md:h-[600px] bg-foreground rounded-[3rem] p-3 shadow-2xl animate-float border-[6px] border-foreground/5">
+                <div className="w-full h-full bg-gradient-to-br from-primary/20 via-background to-primary/10 rounded-[2.5rem] overflow-hidden flex items-center justify-center relative">
+                  
+                  {/* Mockup Screen Content */}
+                  <div className="text-center p-6 space-y-4 relative z-10">
+                    <div className="w-16 h-16 mx-auto bg-primary/20 rounded-full flex items-center justify-center animate-pulse">
                       <Sparkles className="w-8 h-8 text-primary" />
                     </div>
                     <p className="font-serif text-2xl text-foreground">María & José</p>
-                    <p className="text-muted-foreground text-sm">15 de Marzo, 2025</p>
+                    <p className="text-muted-foreground text-sm uppercase tracking-widest">15 . 03 . 2025</p>
                     <div className="pt-4">
                       <div className="h-px w-24 mx-auto bg-primary/30" />
                     </div>
-                    <p className="text-xs text-muted-foreground italic">
+                    <p className="text-xs text-muted-foreground italic px-4">
                       "El amor es el único tesoro que se multiplica al dividirse"
                     </p>
+                    <Button size="sm" className="mt-4 gold-gradient text-primary-foreground rounded-full text-xs">
+                      Confirmar Asistencia
+                    </Button>
                   </div>
+                  
+                  {/* Screen Shine effect */}
+                  <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-tr from-transparent via-white/20 to-transparent pointer-events-none" />
                 </div>
+                
                 {/* Notch */}
-                <div className="absolute top-6 left-1/2 -translate-x-1/2 w-24 h-6 bg-foreground rounded-full" />
+                <div className="absolute top-6 left-1/2 -translate-x-1/2 w-24 h-6 bg-foreground rounded-full z-20" />
               </div>
               
-              {/* Decorative floating elements */}
-              <div className="absolute -top-8 -right-8 w-20 h-20 bg-primary/20 rounded-2xl rotate-12 backdrop-blur-sm animate-float" style={{ animationDelay: "1s" }} />
-              <div className="absolute -bottom-6 -left-6 w-16 h-16 bg-primary/30 rounded-xl -rotate-12 backdrop-blur-sm animate-float" style={{ animationDelay: "2s" }} />
+              {/* Decorative floating elements around phone */}
+              <div className="absolute -top-8 -right-8 w-24 h-24 bg-gradient-to-br from-primary/30 to-primary/5 rounded-2xl rotate-12 backdrop-blur-md animate-float border border-primary/10" style={{ animationDelay: "1s" }} />
+              <div className="absolute -bottom-6 -left-6 w-20 h-20 bg-gradient-to-tr from-primary/40 to-primary/10 rounded-full -rotate-12 backdrop-blur-md animate-float border border-primary/10" style={{ animationDelay: "2s" }} />
             </div>
           </div>
         </div>
