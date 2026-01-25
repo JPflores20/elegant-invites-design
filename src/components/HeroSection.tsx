@@ -7,7 +7,7 @@ const HeroSection = () => {
   };
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden px-4 py-20">
+    <section id="inicio" className="relative min-h-screen flex items-center justify-center overflow-hidden px-4 py-20 pt-28">
       {/* Decorative background elements */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute top-20 left-10 w-72 h-72 bg-primary/10 rounded-full blur-3xl animate-float" />
@@ -18,7 +18,7 @@ const HeroSection = () => {
       <div className="container mx-auto max-w-6xl relative z-10">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Text Content */}
-          <div className="text-center lg:text-left space-y-8">
+          <div className="text-center lg:text-left space-y-8 animate-fade-up">
             <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 rounded-full text-primary text-sm font-medium">
               <Sparkles className="w-4 h-4" />
               <span>Invitaciones Digitales Premium</span>
@@ -33,18 +33,18 @@ const HeroSection = () => {
               Invitaciones digitales interactivas, elegantes y funcionales para tus momentos más especiales.
             </p>
             
-            <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+            <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start pt-4">
               <Button 
                 onClick={scrollToDesigns}
                 size="lg"
-                className="gold-gradient text-primary-foreground hover:opacity-90 transition-opacity px-8 py-6 text-lg font-medium rounded-full shadow-lg hover:shadow-xl"
+                className="gold-gradient text-primary-foreground hover:opacity-90 transition-opacity px-8 py-6 text-lg font-medium rounded-full shadow-lg hover:shadow-xl hover:-translate-y-1 duration-300"
               >
                 Ver Diseños
               </Button>
               <Button 
                 variant="outline"
                 size="lg"
-                className="border-2 border-primary text-primary hover:bg-primary/10 px-8 py-6 text-lg font-medium rounded-full"
+                className="border-2 border-primary text-primary hover:bg-primary/10 px-8 py-6 text-lg font-medium rounded-full hover:-translate-y-1 duration-300"
                 asChild
               >
                 <a 
@@ -59,7 +59,7 @@ const HeroSection = () => {
           </div>
 
           {/* Phone Mockup */}
-          <div className="relative flex justify-center lg:justify-end">
+          <div className="relative flex justify-center lg:justify-end animate-fade-up" style={{ animationDelay: "0.2s" }}>
             <div className="relative">
               {/* Phone frame */}
               <div className="relative w-64 md:w-80 h-[500px] md:h-[600px] bg-foreground rounded-[3rem] p-3 shadow-2xl animate-float">
@@ -84,8 +84,8 @@ const HeroSection = () => {
               </div>
               
               {/* Decorative floating elements */}
-              <div className="absolute -top-8 -right-8 w-20 h-20 bg-primary/20 rounded-2xl rotate-12 backdrop-blur-sm" />
-              <div className="absolute -bottom-6 -left-6 w-16 h-16 bg-primary/30 rounded-xl -rotate-12 backdrop-blur-sm" />
+              <div className="absolute -top-8 -right-8 w-20 h-20 bg-primary/20 rounded-2xl rotate-12 backdrop-blur-sm animate-float" style={{ animationDelay: "1s" }} />
+              <div className="absolute -bottom-6 -left-6 w-16 h-16 bg-primary/30 rounded-xl -rotate-12 backdrop-blur-sm animate-float" style={{ animationDelay: "2s" }} />
             </div>
           </div>
         </div>

@@ -30,9 +30,9 @@ const features = [
 
 const FeaturesSection = () => {
   return (
-    <section className="py-20 px-4">
+    <section id="caracteristicas" className="py-20 px-4">
       <div className="container mx-auto max-w-6xl">
-        <div className="text-center mb-16 space-y-4">
+        <div className="text-center mb-16 space-y-4 animate-fade-up">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground">
             ¿Por qué elegir{" "}
             <span className="text-gradient-gold">nuestras invitaciones?</span>
@@ -46,7 +46,7 @@ const FeaturesSection = () => {
           {features.map((feature, index) => (
             <div
               key={feature.title}
-              className="group p-8 rounded-2xl bg-gradient-to-br from-card to-secondary/30 border border-border hover:border-primary/30 transition-all duration-300 hover-lift"
+              className="group p-8 rounded-2xl bg-gradient-to-br from-card to-secondary/30 border border-border hover:border-primary/30 transition-all duration-300 hover-lift animate-fade-up"
               style={{ animationDelay: `${index * 100}ms` }}
             >
               <div className="flex items-start gap-4">
@@ -67,7 +67,7 @@ const FeaturesSection = () => {
         </div>
 
         {/* Decorative element */}
-        <div className="mt-16 flex justify-center">
+        <div className="mt-16 flex justify-center animate-fade-up" style={{ animationDelay: "0.5s" }}>
           <div className="flex items-center gap-4 text-muted-foreground">
             <div className="h-px w-16 bg-border" />
             <span className="text-sm italic">Innovación y elegancia en cada detalle</span>

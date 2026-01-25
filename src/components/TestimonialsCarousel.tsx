@@ -63,12 +63,13 @@ const TestimonialsCarousel = () => {
 
   return (
     <section 
+      id="testimonios"
       className="py-20 px-4"
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
     >
       <div className="container mx-auto max-w-5xl">
-        <div className="text-center mb-16 space-y-4">
+        <div className="text-center mb-16 space-y-4 animate-fade-up">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground">
             Lo que dicen{" "}
             <span className="text-gradient-gold">nuestros clientes</span>
@@ -78,7 +79,7 @@ const TestimonialsCarousel = () => {
           </p>
         </div>
 
-        <div className="relative">
+        <div className="relative animate-fade-up" style={{ animationDelay: "0.2s" }}>
           <div className="overflow-hidden" ref={emblaRef}>
             <div className="flex">
               {testimonials.map((testimonial, index) => (

@@ -56,9 +56,9 @@ const PricingCards = () => {
   };
 
   return (
-    <section className="py-20 px-4 bg-secondary/30">
+    <section id="precios" className="py-20 px-4 bg-secondary/30">
       <div className="container mx-auto max-w-6xl">
-        <div className="text-center mb-16 space-y-4">
+        <div className="text-center mb-16 space-y-4 animate-fade-up">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground">
             Planes diseñados para{" "}
             <span className="text-gradient-gold">cada presupuesto</span>
@@ -72,7 +72,7 @@ const PricingCards = () => {
           {plans.map((plan, index) => (
             <div
               key={plan.name}
-              className={`relative rounded-3xl p-8 transition-all duration-300 hover-lift ${
+              className={`relative rounded-3xl p-8 transition-all duration-300 hover-lift animate-fade-up ${
                 plan.highlighted
                   ? "glass-card border-2 border-primary scale-105 md:scale-110 z-10"
                   : "bg-card/70 backdrop-blur-sm border border-border"
@@ -130,7 +130,7 @@ const PricingCards = () => {
           ))}
         </div>
 
-        <p className="text-center text-muted-foreground text-sm mt-12">
+        <p className="text-center text-muted-foreground text-sm mt-12 animate-fade-up" style={{ animationDelay: "0.5s" }}>
           ¿Tienes dudas? <a href="https://wa.me/5215512345678?text=Hola%2C%20tengo%20dudas%20sobre%20los%20planes" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">Contáctanos</a> y te asesoramos sin compromiso.
         </p>
       </div>
