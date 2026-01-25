@@ -5,23 +5,22 @@ const examples = [
   {
     title: "Boda Minimalista",
     category: "Bodas",
-    color: "bg-[#F5E6D3]", // Beige
-    // CAMBIO AQUÍ: Reemplazamos el gradiente por una imagen real
+    color: "bg-[#F5E6D3]",
     image: "url('https://images.unsplash.com/photo-1606800052052-a08af7148866?q=80&w=800&auto=format&fit=crop')",
     link: "/invitacion-boda",
   },
   {
-    title: "XV Años Neón",
+    title: "XV Años Red Velvet",
     category: "XV Años",
-    color: "bg-[#2D1B69]", // Purple
-    // También podemos poner imágenes a los otros si quieres luego
-    image: "linear-gradient(45deg, #2D1B69 0%, #9D4EDD 100%)",
-    link: "#",
+    color: "bg-[#7f1d1d]",
+    // CORREGIDO: Ahora usa la misma imagen que el HeroSection de Valentina
+    image: "url('https://images.unsplash.com/photo-1566737236500-c8ac43014a67?q=80&w=800&auto=format&fit=crop')",
+    link: "/xv-valentina",
   },
   {
     title: "Bautizo Floral",
     category: "Bautizos",
-    color: "bg-[#E0F7FA]", // Light Blue
+    color: "bg-[#E0F7FA]",
     image: "linear-gradient(45deg, #E0F7FA 0%, #B2EBF2 100%)",
     link: "#",
   },
@@ -58,16 +57,16 @@ const PortfolioSection = () => {
               className="block group relative h-[400px] rounded-3xl overflow-hidden cursor-pointer shadow-lg hover:shadow-2xl transition-all duration-500 animate-fade-up"
               style={{ animationDelay: `${index * 150}ms` }}
             >
-              {/* Fondo de la tarjeta con imagen/gradiente */}
+              {/* Imagen de fondo */}
               <div 
                 className="absolute inset-0 transition-transform duration-700 group-hover:scale-110 bg-cover bg-center"
                 style={{ background: item.image, backgroundSize: 'cover', backgroundPosition: 'center' }}
               />
               
-              {/* Overlay oscuro al pasar el mouse (para que se lea el texto) */}
-              <div className="absolute inset-0 bg-black/10 group-hover:bg-black/30 transition-colors duration-500" />
+              {/* Overlay oscuro para legibilidad */}
+              <div className="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-colors duration-500" />
 
-              {/* Contenido flotante */}
+              {/* Contenido de la tarjeta */}
               <div className="absolute bottom-0 left-0 w-full p-8 translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
                 <div className="bg-white/95 backdrop-blur-md p-6 rounded-2xl shadow-lg flex justify-between items-center">
                   <div>
