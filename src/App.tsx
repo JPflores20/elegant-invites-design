@@ -4,6 +4,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
+import WhatsAppButton from "./components/WhatsAppButton"; // Importar
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 
@@ -13,6 +14,7 @@ const App = () => (
   <QueryClientProvider client={queryClient}>
     <TooltipProvider>
       <Navbar />
+      <WhatsAppButton /> {/* Agregar botón flotante aquí */}
       <Toaster />
       <Sonner />
       <BrowserRouter>

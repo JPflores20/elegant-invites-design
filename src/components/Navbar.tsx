@@ -53,12 +53,13 @@ const Navbar = () => {
       } bg-background/80 backdrop-blur-md`}
     >
       <div className="container mx-auto px-4 h-16 flex items-center justify-between">
+        {/* LOGO ACTUALIZADO: Invito */}
         <div className="flex items-center gap-2">
           <div className="bg-primary/10 p-2 rounded-full">
             <Sparkles className="w-5 h-5 text-primary" />
           </div>
-          <span className="font-serif text-xl font-bold text-foreground">
-            Eventos Inolvidables
+          <span className="font-serif text-xl font-bold text-foreground tracking-tight">
+            Invito<span className="text-primary">.</span>
           </span>
         </div>
 
