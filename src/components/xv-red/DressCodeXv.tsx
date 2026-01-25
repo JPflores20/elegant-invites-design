@@ -3,10 +3,9 @@ import { Sparkles, Shirt, Ban } from "lucide-react";
 
 const DressCodeXv = () => {
   return (
-    // Fondo rojo oscuro con textura
-    <section className="py-24 px-4 relative overflow-hidden bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-red-900 via-red-950 to-black">
-       {/* Decoración de fondo */}
-       <div className="absolute inset-0 opacity-20 bg-[url('https://www.transparenttextures.com/patterns/dark-mosaic.png')] mix-blend-overlay" />
+    // Mantenemos el fondo rojo oscuro para impacto visual
+    <section className="py-24 px-4 relative overflow-hidden bg-gradient-to-b from-red-900 to-red-950">
+       <div className="absolute inset-0 opacity-10 bg-[url('https://www.transparenttextures.com/patterns/dark-mosaic.png')] mix-blend-overlay" />
 
       <div className="max-w-4xl mx-auto relative z-10 text-center text-red-50">
         <motion.div
@@ -32,7 +31,7 @@ const DressCodeXv = () => {
              initial={{ opacity: 0, x: -30 }}
              whileInView={{ opacity: 1, x: 0 }}
              transition={{ duration: 0.8, delay: 0.2 }}
-            className="bg-red-900/40 backdrop-blur-md p-10 rounded-[2rem] border border-red-700/50 shadow-[0_0_40px_rgba(153,27,27,0.3)]"
+            className="bg-red-950/50 backdrop-blur-md p-10 rounded-[2rem] border border-red-800/50 shadow-[0_0_40px_rgba(153,27,27,0.2)]"
           >
              <div className="flex items-center justify-center gap-3 mb-6 text-red-200">
                 <Ban className="w-6 h-6" />
@@ -42,12 +41,11 @@ const DressCodeXv = () => {
                Por favor, evita utilizar este color, ya que está reservado exclusivamente para la quinceañera.
              </p>
             
-            {/* Muestra del Red Velvet */}
             <div className="flex flex-col items-center">
-                <div className="relative">
-                  <Sparkles className="absolute -top-4 -right-4 text-yellow-500 w-6 h-6 animate-pulse z-20" />
-                  <div className="w-32 h-32 rounded-full bg-gradient-to-br from-[#7f1d1d] to-[#4a0404] shadow-[0_0_25px_rgba(127,29,29,0.6)] border-4 border-red-800/50 relative z-10 flex items-center justify-center">
-                    <span className="font-serif text-red-100 text-lg font-bold drop-shadow-md">
+                <div className="relative group">
+                  <Sparkles className="absolute -top-4 -right-4 text-red-300 w-6 h-6 animate-pulse z-20 group-hover:text-white transition-colors" />
+                  <div className="w-32 h-32 rounded-full bg-gradient-to-br from-[#7f1d1d] to-[#4a0404] shadow-[0_0_30px_rgba(127,29,29,0.7)] border-4 border-red-900/80 relative z-10 flex items-center justify-center group-hover:scale-105 transition-transform">
+                    <span className="font-serif text-red-100 text-lg font-bold drop-shadow-md group-hover:text-white">
                         Red Velvet
                     </span>
                   </div>
@@ -64,12 +62,12 @@ const DressCodeXv = () => {
           >
              <h3 className="font-serif text-2xl mb-8 text-red-200">Sugerencias</h3>
              <ul className="space-y-6 text-left md:text-center text-red-100/90">
-                <li className="flex items-center gap-4 md:justify-center p-3 rounded-xl bg-red-950/30">
-                    <span className="text-2xl">👗</span>
-                    <span>Vestido largo de noche (tonos oscuros o metálicos)</span>
+                <li className="flex items-center gap-4 md:justify-center p-4 rounded-xl bg-red-950/40 border border-red-900/50">
+                    <span className="text-3xl">👗</span>
+                    <span>Vestido largo (tonos oscuros o metálicos)</span>
                 </li>
-                <li className="flex items-center gap-4 md:justify-center p-3 rounded-xl bg-red-950/30">
-                    <span className="text-2xl">🤵</span>
+                <li className="flex items-center gap-4 md:justify-center p-4 rounded-xl bg-red-950/40 border border-red-900/50">
+                    <span className="text-3xl">🤵</span>
                     <span>Traje formal oscuro y corbata</span>
                 </li>
              </ul>
