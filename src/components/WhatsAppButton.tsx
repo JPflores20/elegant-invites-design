@@ -1,9 +1,14 @@
 import { MessageCircle } from "lucide-react";
 
 const WhatsAppButton = () => {
+  const phoneNumber = "524921954970";
+  // CAMBIO: Mensaje actualizado, más directo y profesional.
+  const message = encodeURIComponent("Hola, me interesaría más información sobre las invitaciones.");
+  const whatsappUrl = `https://wa.me/${phoneNumber}?text=${message}`;
+
   return (
     <a
-      href="https://wa.me/5215512345678?text=Hola%2C%20estoy%20visitando%20su%20sitio%20web"
+      href={whatsappUrl}
       target="_blank"
       rel="noopener noreferrer"
       className="fixed bottom-6 right-6 z-50 group"
