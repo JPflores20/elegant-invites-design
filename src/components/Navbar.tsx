@@ -46,6 +46,13 @@ const Navbar = () => {
     }
   };
 
+  // FUNCIÓN PARA REDIRIGIR A WHATSAPP
+  const handleStartClick = () => {
+    const phoneNumber = "524921954970";
+    const message = encodeURIComponent("Hola, me interesaría más información sobre las invitaciones.");
+    window.open(`https://wa.me/${phoneNumber}?text=${message}`, "_blank");
+  };
+
   return (
     <nav
       className={`fixed top-0 w-full z-50 transition-transform duration-300 border-b border-primary/10 ${
@@ -53,7 +60,6 @@ const Navbar = () => {
       } bg-background/80 backdrop-blur-md`}
     >
       <div className="container mx-auto px-4 h-16 flex items-center justify-between">
-        {/* LOGO ACTUALIZADO: StellarDay */}
         <div className="flex items-center gap-3">
           <img 
             src="/logo.svg?v=4" 
@@ -76,7 +82,11 @@ const Navbar = () => {
               {link.name}
             </a>
           ))}
-          <Button className="gold-gradient text-primary-foreground rounded-full px-6">
+          {/* BOTÓN DE ESCRITORIO CONECTADO */}
+          <Button 
+            onClick={handleStartClick}
+            className="gold-gradient text-primary-foreground rounded-full px-6 hover:shadow-lg hover:scale-105 transition-all"
+          >
             Empezar
           </Button>
         </div>
@@ -102,7 +112,11 @@ const Navbar = () => {
                 {link.name}
               </a>
             ))}
-            <Button className="w-full gold-gradient text-primary-foreground rounded-full mt-2">
+            {/* BOTÓN MÓVIL CONECTADO */}
+            <Button 
+              onClick={handleStartClick}
+              className="w-full gold-gradient text-primary-foreground rounded-full mt-2"
+            >
               Empezar
             </Button>
           </div>
