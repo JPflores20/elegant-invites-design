@@ -7,8 +7,10 @@ import DressCode from "@/components/wedding/DressCode";
 import RSVPForm from "@/components/wedding/RSVPForm";
 import MusicPlayer from "@/components/wedding/MusicPlayer";
 import FooterInv from "@/components/wedding/FooterInv";
-import Gallery from "@/components/wedding/Gallery"; // <--- IMPORTADO
+import Gallery from "@/components/wedding/Gallery";
 import DecorativeFloral from "@/components/wedding/DecorativeFloral";
+// Importamos el componente de clima
+import WeatherSection from "@/components/wedding/WeatherSection";
 
 const WeddingInvite = () => {
   return (
@@ -46,19 +48,21 @@ const WeddingInvite = () => {
 
         <DecorativeFloral position="divider" />
         
+        {/* LUGAR Y HORA */}
         <div className="relative">
           <DecorativeFloral position="bottom-left" className="top-20 -left-16 opacity-40 w-64 h-64 md:w-96 md:h-96" />
           <LocationCards />
         </div>
 
+        {/* --- SECCIÓN DE CLIMA AHORA AQUÍ --- */}
+        <WeatherSection />
+
         <Itinerary />
         
-        {/* --- GALERÍA RESTAURADA AQUÍ --- */}
         <DecorativeFloral position="divider" />
         <div className="relative py-12">
            <Gallery />
         </div>
-        {/* -------------------------------- */}
         
         <DecorativeFloral position="divider" />
 
