@@ -4,14 +4,13 @@ import Navbar from "@/components/Navbar";
 import HeroSection from "@/components/HeroSection";
 import StatsSection from "@/components/StatsSection";
 import EventTypesGrid from "@/components/EventTypesGrid";
-import PortfolioSection from "@/components/PortfolioSection";
+// Se eliminó PortfolioSection
 import FeaturesSection from "@/components/FeaturesSection";
 import ProcessSection from "@/components/ProcessSection";
 import PricingCards from "@/components/PricingCards";
 import FAQSection from "@/components/FAQSection";
 import TestimonialsCarousel from "@/components/TestimonialsCarousel";
 import Footer from "@/components/Footer";
-// 1. Importar el botón de WhatsApp
 import WhatsAppButton from "@/components/WhatsAppButton"; 
 
 const Index = () => {
@@ -23,9 +22,10 @@ const Index = () => {
       
       <StatsSection />
       
+      {/* Esta es la sección que ahora tendrá los enlaces */}
       <EventTypesGrid />
       
-      <PortfolioSection />
+      {/* PortfolioSection eliminado de aquí */}
       
       <ProcessSection />
       
@@ -39,7 +39,6 @@ const Index = () => {
       
       <Footer />
 
-      {/* 2. Añadir el botón aquí al final */}
       <WhatsAppButton />
     </main>
   );
