@@ -10,6 +10,7 @@ import {
   GiftsSection,
   RSVPForm,
   Footer,
+  DressCode, // <--- Importación nueva
 } from "@/components/baptism";
 
 // Fotos de ejemplo (puedes cambiarlas por las reales)
@@ -22,24 +23,31 @@ const placeholderPhotos = [
   "https://images.unsplash.com/photo-1566004100631-35d015d6a491?w=600&h=600&fit=crop",
 ];
 
-// Datos del Bautizo - Traducidos al Español
+// Datos del Bautizo - Traducidos al Español y Completos
 const baptismData = {
-  babyName: "Sofía Grace", // Puedes poner solo Sofía si prefieres
+  babyName: "Sofía Grace",
   date: "Domingo, 15 de Marzo de 2026",
   targetDate: new Date("2026-03-15T11:00:00"),
   
   church: {
     name: "Catedral de Santa María",
     address: "Calle Catedral 123, Centro, Ciudad",
-    time: "11:00 AM",
-    mapsUrl: "https://maps.google.com",
+    time: "11:00 AM", // <--- Hora visible para LocationCards
+    mapsUrl: "https://maps.google.com/?q=Catedral+de+Santa+Maria",
   },
   
   reception: {
     name: "Jardín El Pabellón",
     address: "Av. Jardines 456, Ribera, Ciudad",
-    time: "1:00 PM",
-    mapsUrl: "https://maps.google.com",
+    time: "1:00 PM", // <--- Hora visible para LocationCards
+    mapsUrl: "https://maps.google.com/?q=Jardin+El+Pabellon",
+  },
+  
+  // NUEVO: Datos para el Código de Vestimenta
+  dressCode: {
+    type: "Formal de Día",
+    description: "Sugerimos colores claros y pasteles (blanco, beige, rosa palo, azul cielo) para armonizar con la celebración.",
+    colors: ["#FFFFFF", "#F5F5DC", "#E0F7FA", "#F8E1E7"], // Blanco, Beige, Azul claro, Rosa claro
   },
   
   weather: {
@@ -78,14 +86,14 @@ const baptismData = {
   ],
   
   godparents: [
-    { name: "Maria Elena Rodriguez", role: "Madrina" as const }, // Role cambiado a español manualmente si es necesario, o manejado en el componente
+    { name: "Maria Elena Rodriguez", role: "Madrina" as const },
     { name: "James Michael Thompson", role: "Padrino" as const },
   ],
 };
 
 const BaptismInvite = () => {
   return (
-    <div className="min-h-screen bg-background relative">
+    <div className="min-h-screen bg-background relative font-sans text-foreground">
       {/* Nubes flotantes de fondo */}
       <FloatingClouds />
       
@@ -101,17 +109,24 @@ const BaptismInvite = () => {
       {/* Cuenta Regresiva */}
       <CountdownTimer targetDate={baptismData.targetDate} />
       
-      {/* Tarjetas de Ubicación */}
+      {/* Tarjetas de Ubicación (Con Hora y Lugar) */}
       <LocationCards
         church={baptismData.church}
         reception={baptismData.reception}
       />
       
-      {/* Sección del Clima */}
-      <WeatherSection weather={baptismData.weather} />
-      
       {/* Itinerario */}
       <Itinerary events={baptismData.itinerary} />
+
+      {/* NUEVA SECCIÓN: Código de Vestimenta */}
+      <DressCode 
+        type={baptismData.dressCode.type}
+        description={baptismData.dressCode.description}
+        colors={baptismData.dressCode.colors}
+      />
+      
+      {/* Sección del Clima */}
+      <WeatherSection weather={baptismData.weather} />
       
       {/* Galería de Fotos */}
       <PhotoGallery photos={placeholderPhotos} />

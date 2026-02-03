@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { MapPin, ExternalLink, Church, Cake } from "lucide-react";
+import { MapPin, ExternalLink, Church, Cake, Clock } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 
@@ -41,26 +41,30 @@ const LocationCard = ({
         <CardTitle className="text-xl font-serif text-charcoal">{title}</CardTitle>
       </CardHeader>
       <CardContent className="text-center">
-        <h3 className="font-medium text-charcoal mb-2">{location.name}</h3>
-        
-        <div className="flex items-start justify-center gap-2 text-muted-foreground mb-4">
-          <MapPin className="w-4 h-4 mt-1 flex-shrink-0 text-silver" />
-          <p className="text-sm">{location.address}</p>
-        </div>
-        
+        {/* HORA DESTACADA */}
         {location.time && (
-          <p className="text-silver font-medium mb-4">{location.time}</p>
+          <div className="flex items-center justify-center gap-2 mb-4 bg-primary/10 py-2 rounded-full w-fit mx-auto px-6">
+            <Clock className="w-4 h-4 text-sky-deep" />
+            <p className="text-lg font-semibold text-charcoal">{location.time}</p>
+          </div>
         )}
+
+        <h3 className="font-medium text-charcoal mb-2 text-lg">{location.name}</h3>
+        
+        <div className="flex items-start justify-center gap-2 text-muted-foreground mb-6">
+          <MapPin className="w-4 h-4 mt-1 flex-shrink-0 text-silver" />
+          <p className="text-sm max-w-[200px]">{location.address}</p>
+        </div>
         
         {location.mapsUrl && (
           <Button
             variant="outline"
             size="sm"
-            className="rounded-full border-silver text-silver hover:bg-primary hover:text-charcoal hover:border-primary"
+            className="rounded-full border-silver text-silver hover:bg-primary hover:text-charcoal hover:border-primary transition-all"
             asChild
           >
             <a href={location.mapsUrl} target="_blank" rel="noopener noreferrer">
-              Ver en Mapa
+              Ver Ubicación
               <ExternalLink className="w-3 h-3 ml-1" />
             </a>
           </Button>
@@ -82,10 +86,10 @@ export const LocationCards = ({ church, reception }: LocationCardsProps) => {
           transition={{ duration: 0.6 }}
         >
           <h2 className="text-2xl md:text-3xl font-serif text-charcoal mb-4">
-            Ubicación y Detalles
+            Lugar y Hora
           </h2>
           <p className="text-muted-foreground">
-            Será un honor contar con tu compañía
+            Acompáñanos en este momento sagrado
           </p>
         </motion.div>
 
@@ -93,13 +97,13 @@ export const LocationCards = ({ church, reception }: LocationCardsProps) => {
           <LocationCard 
             location={church} 
             icon={Church} 
-            title="Ceremonia" 
+            title="Ceremonia Religiosa" 
             index={0} 
           />
           <LocationCard 
             location={reception} 
             icon={Cake} 
-            title="Celebración" 
+            title="Recepción" 
             index={1} 
           />
         </div>

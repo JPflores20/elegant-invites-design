@@ -19,7 +19,8 @@ const events = [
     icon: Baby, 
     title: "Bautizos", 
     desc: "Ternura inolvidable", 
-    color: "from-blue-400/20 to-cyan-400/20" 
+    color: "from-blue-400/20 to-cyan-400/20",
+    link: "/invitacion-bautizo" // <--- ¡ENLACE AGREGADO!
   },
   { 
     icon: GraduationCap, 
@@ -53,14 +54,12 @@ const EventTypesGrid = () => {
             Personalizamos cada detalle para que coincida con la temática de tu evento.
           </p>
           
-          {/* --- LEYENDA AÑADIDA AQUÍ --- */}
           <div className="flex items-center justify-center gap-2 text-primary font-medium animate-pulse mt-4 bg-primary/5 inline-block px-4 py-2 rounded-full">
             <MousePointerClick className="w-4 h-4" />
             <span className="text-sm md:text-base">
               Haz clic sobre el tema de tu interés para abrir una invitación de ejemplo
             </span>
           </div>
-          {/* --------------------------- */}
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">

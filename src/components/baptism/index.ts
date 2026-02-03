@@ -9,3 +9,4 @@ export { PhotoGallery } from "./PhotoGallery";
 export { GiftsSection } from "./GiftsSection";
 export { RSVPForm } from "./RSVPForm";
 export { Footer } from "./Footer";
+export { DressCode } from "./DressCode";

@@ -13,16 +13,16 @@ const examples = [
     title: "XV Años Red Velvet",
     category: "XV Años",
     color: "bg-[#7f1d1d]",
-    // CORREGIDO: Ahora usa la misma imagen que el HeroSection de Valentina
     image: "url('https://images.unsplash.com/photo-1566737236500-c8ac43014a67?q=80&w=800&auto=format&fit=crop')",
     link: "/xv-valentina",
   },
   {
-    title: "Bautizo Floral",
+    title: "Bautizo Celestial", // Título actualizado
     category: "Bautizos",
     color: "bg-[#E0F7FA]",
-    image: "linear-gradient(45deg, #E0F7FA 0%, #B2EBF2 100%)",
-    link: "#",
+    // Imagen actualizada para coincidir con el tema
+    image: "url('https://images.unsplash.com/photo-1519689680058-324335c77eba?q=80&w=800&auto=format&fit=crop')",
+    link: "/invitacion-bautizo", // <--- ENLACE CORREGIDO
   },
 ];
 
