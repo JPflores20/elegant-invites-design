@@ -6,7 +6,9 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 import WeddingInvite from "./pages/WeddingInvite";
-import XvInviteRed from "./pages/XvInviteRed"; // Importar página nueva
+import XvInviteRed from "./pages/XvInviteRed";
+// Importación de la nueva invitación de Bautizo
+import BaptismInvite from "./pages/BaptismInvite";
 
 const queryClient = new QueryClient();
 
@@ -17,10 +19,15 @@ const App = () => (
       <Sonner />
       <BrowserRouter>
         <Routes>
+          {/* Ruta principal (Landing Page) */}
           <Route path="/" element={<Index />} />
+          
+          {/* Rutas de Invitaciones */}
           <Route path="/invitacion-boda" element={<WeddingInvite />} />
-          {/* Ruta de los XV */}
           <Route path="/xv-valentina" element={<XvInviteRed />} />
+          <Route path="/invitacion-bautizo" element={<BaptismInvite />} />
+          
+          {/* Ruta 404 */}
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
