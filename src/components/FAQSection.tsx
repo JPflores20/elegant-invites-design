@@ -24,7 +24,7 @@ const faqs = [
   },
   {
     question: "¿Qué pasa con la confirmación de asistencia?",
-    answer: "Los invitados llenan un formulario sencillo en la invitación. Tú recibirás las notificaciones por correo o podrás descargar la lista completa en Excel (según el plan).",
+    answer: "Los invitados llenan un formulario sencillo en la invitación. Tú recibirás las notificaciones por WhatsApp.",
   },
 ];
 
