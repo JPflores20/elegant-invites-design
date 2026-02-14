@@ -1,31 +1,10 @@
-import { useState, useEffect } from "react";
+import { useTypewriter } from "@/hooks/useTypewriter";
 import { Button } from "@/components/ui/button";
 import { Sparkles, ArrowRight } from "lucide-react";
 
 const HeroSection = () => {
-  const [text, setText] = useState("");
-  const phrases = ["Tu Boda", "Tus XV Años", "Tu Bautizo", "Tu Evento"];
-  const [phraseIndex, setPhraseIndex] = useState(0);
-  const [isDeleting, setIsDeleting] = useState(false);
-
-  useEffect(() => {
-    const currentPhrase = phrases[phraseIndex];
-    const speed = isDeleting ? 50 : 100;
-
-    const timer = setTimeout(() => {
-      if (!isDeleting && text === currentPhrase) {
-        setTimeout(() => setIsDeleting(true), 2000);
-      } else if (isDeleting && text === "") {
-        setIsDeleting(false);
-        setPhraseIndex((prev) => (prev + 1) % phrases.length);
-      } else {
-        setText(currentPhrase.substring(0, text.length + (isDeleting ? -1 : 1)));
-      }
-    }, speed);
-
-    return () => clearTimeout(timer);
-  }, [text, isDeleting, phraseIndex]);
-
+  const text = useTypewriter(["Tu Boda", "Tus XV Años", "Tu Bautizo", "Tu Evento"]);
+  
   const scrollToDesigns = () => {
     document.getElementById("designs")?.scrollIntoView({ behavior: "smooth" });
   };

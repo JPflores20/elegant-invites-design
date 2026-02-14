@@ -20,6 +20,7 @@ type FormData = z.infer<typeof formSchema>;
 
 const RSVPForm = () => {
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const form = useForm<FormData>({
     resolver: zodResolver(formSchema),
@@ -30,8 +31,12 @@ const RSVPForm = () => {
     },
   });
 
-  const onSubmit = (data: FormData) => {
+  const onSubmit = async (data: FormData) => {
+    setIsSubmitting(true);
+    // Simulate network request
+    await new Promise((resolve) => setTimeout(resolve, 2000));
     console.log("RSVP submitted:", data);
+    setIsSubmitting(false);
     setIsSubmitted(true);
   };
 
@@ -90,6 +95,7 @@ const RSVPForm = () => {
                               placeholder="Tu nombre completo"
                               className="bg-muted/30 border-border/50 focus:border-primary font-body"
                               {...field}
+                              disabled={isSubmitting}
                             />
                           </FormControl>
                           <FormMessage />
@@ -106,7 +112,7 @@ const RSVPForm = () => {
                             <Users className="h-4 w-4 text-primary" />
                             Número de Invitados
                           </FormLabel>
-                          <Select onValueChange={field.onChange} defaultValue={field.value}>
+                          <Select onValueChange={field.onChange} defaultValue={field.value} disabled={isSubmitting}>
                             <FormControl>
                               <SelectTrigger className="bg-muted/30 border-border/50 focus:border-primary font-body">
                                 <SelectValue placeholder="Selecciona cuántos asistirán" />
@@ -141,6 +147,7 @@ const RSVPForm = () => {
                               className="bg-muted/30 border-border/50 focus:border-primary font-body resize-none"
                               rows={3}
                               {...field}
+                              disabled={isSubmitting}
                             />
                           </FormControl>
                           <FormMessage />
@@ -151,9 +158,16 @@ const RSVPForm = () => {
                     <Button
                       type="submit"
                       className="w-full bg-primary text-primary-foreground hover:bg-primary/90 font-body py-6 text-base hover-glow"
+                      disabled={isSubmitting}
                     >
-                      <Send className="mr-2 h-5 w-5" />
-                      Confirmar Asistencia
+                      {isSubmitting ? (
+                        "Enviando..."
+                      ) : (
+                        <>
+                          <Send className="mr-2 h-5 w-5" />
+                          Confirmar Asistencia
+                        </>
+                      )}
                     </Button>
                   </form>
                 </Form>

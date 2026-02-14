@@ -13,6 +13,8 @@ import {
   DressCode, // <--- Importación nueva
 } from "@/components/baptism";
 
+import SEO from "@/components/SEO";
+
 // Fotos de ejemplo (puedes cambiarlas por las reales)
 const placeholderPhotos = [
   "https://images.unsplash.com/photo-1519689680058-324335c77eba?w=600&h=600&fit=crop",
@@ -91,9 +93,15 @@ const baptismData = {
   ],
 };
 
+
+
 const BaptismInvite = () => {
   return (
     <div className="min-h-screen bg-background relative font-sans text-foreground">
+      <SEO 
+        title="Bautizo de Sofía Grace" 
+        description="Acompáñanos a recibir la bendición de Sofía Grace. Detalles del evento." 
+      />
       {/* Nubes flotantes de fondo */}
       <FloatingClouds />
       

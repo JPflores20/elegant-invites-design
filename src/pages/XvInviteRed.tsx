@@ -8,10 +8,16 @@ import ItineraryXv from "@/components/xv-red/ItineraryXv";
 import GiftsSectionXv from "@/components/xv-red/GiftsSectionXv";
 import { Sparkles, Heart } from "lucide-react";
 
+import SEO from "@/components/SEO";
+
 const XvInviteRed = () => {
   return (
     // CAMBIO: Fondo degradado vibrante (Rojo a Vino) en lugar de negro
     <div className="min-h-screen bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-[#b91c1c] via-[#7f1d1d] to-[#450a0a] font-sans selection:bg-red-300 selection:text-red-900 overflow-x-hidden text-white">
+      <SEO 
+        title="Mis XV Años - Valentina" 
+        description="Te invito a celebrar mis 15 años. ¡No faltes a esta noche mágica!" 
+      />
       <MusicPlayerXv />
       <HeroSectionXv />
       

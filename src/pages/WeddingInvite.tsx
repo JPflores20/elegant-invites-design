@@ -12,6 +12,10 @@ import DecorativeFloral from "@/components/wedding/DecorativeFloral";
 // Importamos el componente de clima
 import WeatherSection from "@/components/wedding/WeatherSection";
 
+import SEO from "@/components/SEO";
+
+// ... imports
+
 const WeddingInvite = () => {
   return (
     <div 
@@ -19,6 +23,7 @@ const WeddingInvite = () => {
       style={{
         "--background": "40 30% 94%", 
         "--foreground": "25 20% 30%",
+        // ... (resto de variables CSS se mantienen igual si no las toco, pero aquí estoy reemplazando el bloque inicial)
         "--card": "40 30% 97%", 
         "--card-foreground": "25 20% 30%",
         "--muted": "35 25% 88%",
@@ -29,6 +34,10 @@ const WeddingInvite = () => {
         "--ring": "30 40% 50%",
       } as React.CSSProperties}
     >
+      <SEO 
+        title="Nuestra Boda" 
+        description="Acompáñanos a celebrar nuestra unión. Detalles, ubicación y confirmación de asistencia." 
+      />
       {/* Textura de papel de fondo */}
       <div className="fixed inset-0 opacity-40 pointer-events-none z-0" 
            style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.1'/%3E%3C/svg%3E")` }} 
