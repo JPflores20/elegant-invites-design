@@ -1,4 +1,5 @@
 import { Heart, Crown, Baby, GraduationCap, PartyPopper, Briefcase, MousePointerClick } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const events = [
   { 
@@ -46,7 +47,7 @@ const events = [
 const EventTypesGrid = () => {
   return (
     <section id="designs" className="py-20 px-4 bg-secondary/30">
-      <div className="container mx-auto max-w-6xl">
+      <div className="container mx-auto">
         <div className="text-center mb-16 space-y-4 animate-fade-up">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground">
             Diseños para cada <span className="text-gradient-gold">ocasión especial</span>
@@ -96,17 +97,13 @@ const EventTypesGrid = () => {
             );
 
             return event.link ? (
-              <a 
+              <Link 
                 key={index} 
-                href={event.link}
-                // Si quieres que se abra en la misma pestaña quita el target="_blank"
-                // Si quieres nueva pestaña, déjalo como está. 
-                // Para una SPA (Single Page App) lo ideal es usar Link de react-router-dom, 
-                // pero como el componente usa <a> actualmente, esto funcionará.
+                to={event.link}
                 className="block"
               >
                 {CardContent}
-              </a>
+              </Link>
             ) : (
               <div key={index}>{CardContent}</div>
             );

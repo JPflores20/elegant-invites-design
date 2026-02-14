@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -6,6 +7,7 @@
 
 @layer base {
   :root {
+    /* --- VARIABLES ORIGINALES (ELEGANT INVITES) --- */
     --background: 39 100% 98%;
     --foreground: 0 0% 18%;
     --card: 40 50% 99%;
@@ -26,6 +28,8 @@
     --input: 39 30% 88%;
     --ring: 40 55% 53%;
     --radius: 0.75rem;
+    
+    /* Colores adicionales del proyecto original */
     --dove-white: 0 0% 100%;
     --silver-light: 210 20% 96%;
     --sky-light: 195 46% 90%;
@@ -50,7 +54,9 @@
 }
 
 @layer components {
+  /* --- COMPONENTES ORIGINALES --- */
   .glass-card { @apply bg-card/70 backdrop-blur-md border border-primary/20 shadow-xl; }
+  
   .gold-gradient { background: linear-gradient(135deg, hsl(40 55% 53%) 0%, hsl(45 60% 60%) 50%, hsl(40 55% 53%) 100%); }
   
   .text-gradient-gold {
@@ -66,6 +72,7 @@
 }
 
 @layer utilities {
+  /* --- ANIMACIONES ORIGINALES --- */
   .animate-float { animation: float 6s ease-in-out infinite; }
   @keyframes float {
     0%, 100% { transform: translateY(0px); }
@@ -78,6 +85,7 @@
     to { opacity: 1; transform: translateY(0); }
   }
 
+  /* Shimmer Original (Efecto de brillo sesgado) */
   .animate-shimmer {
     position: relative;
     overflow: hidden;
@@ -100,7 +108,7 @@
   @keyframes blink { 50% { opacity: 0; } }
 }
 
-/* --- ESTILOS ESPECÍFICOS PARA LA BODA VINTAGE --- */
+/* --- ESTILOS ESPECÍFICOS PARA LA BODA VINTAGE (PRESERVADOS) --- */
 .min-h-screen[style*="--background: 40 30% 94%"] {
   .glass-card, 
   .bg-white,
@@ -138,66 +146,130 @@
   }
 }
 
-/* =========================================
-   TEMA DE GRADUACIÓN UAZ (RESTAURACIÓN)
-   ========================================= */
+/* ============================================================
+   TEMA DE GRADUACIÓN UAZ (FUSIÓN COMPLETA)
+   Variables y estilos extraídos de: uaz-graduation-portal
+   ============================================================ */
+
 .uaz-theme {
-  /* Fondo blanco puro y texto oscuro */
+  /* UAZ Navy Blue Theme Variables */
   --background: 0 0% 100%;
   --foreground: 220 65% 18%;
 
-  /* Azul Marino UAZ (Primary original) */
+  --card: 0 0% 100%;
+  --card-foreground: 220 65% 18%;
+
+  --popover: 0 0% 100%;
+  --popover-foreground: 220 65% 18%;
+
+  /* Primary: Deep Navy Blue (#1a365d) */
   --primary: 220 57% 23%;
   --primary-foreground: 0 0% 100%;
 
-  /* Dorado (Gold original) */
-  --gold: 43 65% 52%;
-  --gold-foreground: 220 57% 15%;
-
-  /* Secondary */
+  /* Secondary: Light Navy tint */
   --secondary: 220 40% 96%;
   --secondary-foreground: 220 57% 23%;
 
+  /* Gold accent (#d4af37) */
+  --gold: 43 65% 52%;
+  --gold-foreground: 220 57% 15%;
+
   --muted: 220 20% 96%;
   --muted-foreground: 220 15% 45%;
-  
+
+  --accent: 43 65% 52%;
+  --accent-foreground: 220 57% 15%;
+
+  --destructive: 0 84.2% 60.2%;
+  --destructive-foreground: 0 0% 100%;
+
   --border: 220 20% 88%;
-  --glass-bg: 220 57% 23%; /* Base para el vidrio azulado */
-  
-  /* Resetear fuentes y bordes globales si es necesario */
-  --radius: 0.75rem;
+  --input: 220 20% 88%;
+  --ring: 43 65% 52%;
+
+  /* Glassmorphism UAZ */
+  --glass-bg: 220 57% 23% / 0.1;
+  --glass-border: 0 0% 100% / 0.2;
+
+  /* Reset global para esta página */
+  font-family: 'Inter', sans-serif;
+  width: 100%;
+  position: relative;
 }
 
-/* Clases utilitarias específicas de la graduación */
-.uaz-theme .text-gold { color: hsl(43 65% 52%); }
-.uaz-theme .bg-gold { background-color: hsl(43 65% 52%); }
-.uaz-theme .border-gold { border-color: hsl(43 65% 52%); }
+/* --- Override de Componentes para UAZ --- */
 
-.uaz-theme .gradient-navy {
-  background: linear-gradient(180deg, hsl(220 57% 23%) 0%, hsl(220 65% 12%) 100%);
-}
-
-.uaz-theme .gold-shimmer {
-  background: linear-gradient(90deg, hsl(43 65% 52%) 0%, hsl(43 80% 65%) 50%, hsl(43 65% 52%) 100%);
-  background-size: 200% 100%;
-  animation: shimmer 3s ease-in-out infinite;
-}
-
-/* Restaurar el estilo de tarjeta de vidrio azulado solo para UAZ */
+/* Sobrescribe la tarjeta glass solo dentro de .uaz-theme */
 .uaz-theme .glass-card {
-  background: linear-gradient(135deg, hsl(220 57% 23% / 0.1), hsl(220 57% 23% / 0.05)) !important;
-  border-color: rgba(255, 255, 255, 0.2) !important;
-  backdrop-filter: blur(10px);
+  backdrop-filter: blur(12px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.2) !important;
   box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37) !important;
+  background-color: transparent !important;
+  background: linear-gradient(
+    135deg,
+    hsl(220 57% 23% / 0.1),
+    hsl(220 57% 23% / 0.05)
+  ) !important;
 }
 
-/* Restaurar background noise si se usa */
+/* Textura de ruido */
 .uaz-theme .bg-noise {
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
 }
 
-/* Asegurar que el canvas de partículas no bloquee el scroll */
-#tsparticlesfullpage {
+/* Degradados específicos */
+.uaz-theme .gradient-navy {
+  background: linear-gradient(
+    180deg,
+    hsl(220 57% 23%) 0%,
+    hsl(220 65% 12%) 100%
+  );
+}
+
+.uaz-theme .gradient-overlay {
+  background: linear-gradient(
+    180deg,
+    hsl(220 57% 15% / 0.7) 0%,
+    hsl(220 65% 8% / 0.9) 100%
+  );
+}
+
+/* Colores utilitarios UAZ */
+.uaz-theme .text-gold { color: hsl(43 65% 52%); }
+.uaz-theme .bg-gold { background-color: hsl(43 65% 52%); }
+.uaz-theme .border-gold { border-color: hsl(43 65% 52%); }
+
+/* Animación Shimmer UAZ (Renombrada para no chocar con la original) */
+.uaz-theme .gold-shimmer {
+  background: linear-gradient(
+    90deg,
+    hsl(43 65% 52%) 0%,
+    hsl(43 80% 65%) 50%,
+    hsl(43 65% 52%) 100%
+  );
+  background-size: 200% 100%;
+  animation: shimmer-bg 3s ease-in-out infinite;
+}
+
+/* Animaciones UAZ */
+.uaz-theme .animate-fade-up-delay-1 { animation: fadeUp 0.6s ease-out 0.1s forwards; opacity: 0; }
+.uaz-theme .animate-fade-up-delay-2 { animation: fadeUp 0.6s ease-out 0.2s forwards; opacity: 0; }
+.uaz-theme .animate-fade-up-delay-3 { animation: fadeUp 0.6s ease-out 0.3s forwards; opacity: 0; }
+.uaz-theme .animate-count { animation: countPulse 1s ease-in-out; }
+
+/* Keyframes exclusivos UAZ */
+@keyframes shimmer-bg {
+  0%, 100% { background-position: 200% 0; }
+  50% { background-position: -200% 0; }
+}
+
+@keyframes countPulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}
+
+/* Fix para partículas */
+#tsparticlesfullpage, #tsparticleshero {
   position: absolute;
   top: 0;
   left: 0;

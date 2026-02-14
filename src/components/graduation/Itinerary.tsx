@@ -77,26 +77,26 @@ const Itinerary = () => {
                 
                 {/* Content Card */}
                 <div className={`ml-12 md:ml-0 md:w-1/2 ${index % 2 === 0 ? "md:pr-12 md:text-right" : "md:pl-12"}`}>
-                  <div className="glass-card rounded-xl p-4 md:p-6 border border-primary/10 hover:border-gold/20 transition-all duration-300 bg-card">
+                  <div className="group glass-card rounded-xl p-4 md:p-6 border border-primary/10 hover:border-gold/50 transition-all duration-500 bg-card hover:bg-card/80 hover:shadow-[0_0_30px_rgba(212,175,55,0.15)] hover:-translate-y-1 cursor-default">
                     {/* Time */}
                     <div className={`flex items-center gap-2 mb-2 ${index % 2 === 0 ? "md:justify-end" : ""}`}>
-                      <span className="text-gold font-semibold text-sm">
+                      <span className="text-gold font-semibold text-sm group-hover:text-primary transition-colors duration-300">
                         {event.time}
                       </span>
                     </div>
                     
                     {/* Title with Icon */}
                     <div className={`flex items-center gap-3 mb-2 ${index % 2 === 0 ? "md:flex-row-reverse" : ""}`}>
-                      <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
-                        <event.icon className="w-5 h-5 text-primary" />
+                      <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0 group-hover:bg-gold/20 transition-colors duration-300">
+                        <event.icon className="w-5 h-5 text-primary group-hover:text-gold transition-colors duration-300" />
                       </div>
-                      <h3 className="font-display font-semibold text-lg text-foreground">
+                      <h3 className="font-display font-semibold text-lg text-foreground group-hover:text-primary transition-colors duration-300">
                         {event.title}
                       </h3>
                     </div>
                     
                     {/* Description */}
-                    <p className="text-muted-foreground text-sm">
+                    <p className="text-muted-foreground text-sm group-hover:text-foreground/80 transition-colors duration-300">
                       {event.description}
                     </p>
                   </div>

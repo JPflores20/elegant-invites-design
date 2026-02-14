@@ -17,7 +17,7 @@ const HeroSection = () => {
         <div className="absolute bottom-0 right-0 w-[600px] h-[600px] bg-primary/10 rounded-full blur-[120px] animate-float opacity-60" style={{ animationDelay: "-4s" }} />
       </div>
 
-      <div className="container mx-auto max-w-6xl relative z-10">
+      <div className="container mx-auto relative z-10">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           
           {/* Text Content */}
@@ -43,7 +43,7 @@ const HeroSection = () => {
               <Button 
                 onClick={scrollToDesigns}
                 size="lg"
-                className="gold-gradient text-primary-foreground animate-shimmer hover:opacity-90 transition-opacity px-8 py-6 text-lg font-medium rounded-full shadow-lg hover:shadow-xl hover:-translate-y-1 duration-300"
+                className="gold-gradient text-primary-foreground hover:opacity-90 transition-opacity px-8 py-6 text-lg font-medium rounded-full shadow-lg hover:shadow-xl hover:-translate-y-1 duration-300"
               >
                 Ver Diseños <ArrowRight className="ml-2 w-5 h-5" />
               </Button>

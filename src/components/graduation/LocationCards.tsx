@@ -42,9 +42,12 @@ const LocationCards = () => {
           {locations.map((location, index) => (
             <div
               key={location.id}
-              className="group glass-card rounded-2xl p-6 md:p-8 border border-white/10 hover:border-gold/30 transition-all duration-500 hover:shadow-2xl hover:shadow-gold/10 hover:-translate-y-2 hover:scale-[1.02]"
+              className="group glass-card relative overflow-hidden rounded-2xl p-6 md:p-8 border border-white/10 transition-all duration-500 hover:shadow-[0_0_40px_rgba(212,175,55,0.15)] hover:-translate-y-2"
               style={{ animationDelay: `${index * 0.15}s` }}
             >
+              {/* Inner Glow Effect */}
+              <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
+              <div className="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-gold/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
               {/* Icon */}
               <div className="mb-6 flex justify-center">
                 <div className="w-16 h-16 rounded-full bg-gold/10 flex items-center justify-center group-hover:bg-gold/20 transition-colors">
