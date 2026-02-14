@@ -20,13 +20,14 @@ const events = [
     title: "Bautizos", 
     desc: "Ternura inolvidable", 
     color: "from-blue-400/20 to-cyan-400/20",
-    link: "/invitacion-bautizo" // <--- ¡ENLACE AGREGADO!
+    link: "/invitacion-bautizo"
   },
   { 
     icon: GraduationCap, 
     title: "Graduaciones", 
     desc: "Logros para celebrar", 
-    color: "from-emerald-500/20 to-teal-500/20" 
+    color: "from-emerald-500/20 to-teal-500/20",
+    link: "/invitacion-graduacion" // <--- ¡ENLACE AGREGADO AQUÍ!
   },
   { 
     icon: PartyPopper, 
@@ -98,8 +99,10 @@ const EventTypesGrid = () => {
               <a 
                 key={index} 
                 href={event.link}
-                target="_blank" 
-                rel="noopener noreferrer"
+                // Si quieres que se abra en la misma pestaña quita el target="_blank"
+                // Si quieres nueva pestaña, déjalo como está. 
+                // Para una SPA (Single Page App) lo ideal es usar Link de react-router-dom, 
+                // pero como el componente usa <a> actualmente, esto funcionará.
                 className="block"
               >
                 {CardContent}

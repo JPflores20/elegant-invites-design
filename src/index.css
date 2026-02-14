@@ -37,7 +37,15 @@
 
 @layer base {
   * { @apply border-border; }
-  body { @apply bg-background text-foreground antialiased; font-family: 'Inter', system-ui, sans-serif; }
+  body { 
+    @apply bg-background text-foreground antialiased; 
+    font-family: 'Inter', system-ui, sans-serif; 
+    overflow-x: hidden;
+  }
+  html {
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+  }
   h1, h2, h3, h4, h5, h6 { font-family: 'Playfair Display', Georgia, serif; }
 }
 
@@ -70,7 +78,6 @@
     to { opacity: 1; transform: translateY(0); }
   }
 
-  /* NUEVAS ANIMACIONES */
   .animate-shimmer {
     position: relative;
     overflow: hidden;
@@ -94,53 +101,108 @@
 }
 
 /* --- ESTILOS ESPECÍFICOS PARA LA BODA VINTAGE --- */
-/* Se activa solo cuando el contenedor tiene el color de fondo específico de la boda */
-
 .min-h-screen[style*="--background: 40 30% 94%"] {
-  
-  /* 1. Tarjetas estilo Papel Antiguo */
   .glass-card, 
   .bg-white,
   .bg-white\/90,
   .bg-white\/95 {
-    background-color: rgba(253, 251, 247, 0.75) !important; /* Crema translúcido */
-    border: 1px solid rgba(166, 144, 118, 0.2) !important; /* Borde café muy suave */
-    box-shadow: 
-      0 10px 30px -5px rgba(74, 59, 50, 0.08), /* Sombra cálida */
-      inset 0 0 60px rgba(255, 255, 255, 0.6) !important; /* Brillo interior */
+    background-color: rgba(253, 251, 247, 0.75) !important;
+    border: 1px solid rgba(166, 144, 118, 0.2) !important;
+    box-shadow: 0 10px 30px -5px rgba(74, 59, 50, 0.08), inset 0 0 60px rgba(255, 255, 255, 0.6) !important;
     backdrop-filter: blur(10px);
   }
-
-  /* 2. Inputs y Formularios: Tono arena/beige */
   input, select, textarea {
     background-color: rgba(255, 255, 255, 0.6) !important;
     border-color: rgba(166, 144, 118, 0.3) !important;
     color: #4A3B32 !important;
   }
-  
   input:focus, select:focus, textarea:focus {
     border-color: #8B7355 !important;
     box-shadow: 0 0 0 2px rgba(139, 115, 85, 0.2) !important;
   }
-  
   input::placeholder, textarea::placeholder {
     color: rgba(74, 59, 50, 0.4) !important;
   }
-
-  /* 3. Botones Primarios: Estilo Bronce */
   button[class*="bg-primary"] {
-    background-color: #8B7355 !important; /* Bronce */
+    background-color: #8B7355 !important;
     color: #FFF !important;
     transition: all 0.3s ease;
   }
   button[class*="bg-primary"]:hover {
-    background-color: #6D5A43 !important; /* Café más oscuro */
+    background-color: #6D5A43 !important;
     transform: translateY(-2px);
     box-shadow: 0 5px 15px rgba(109, 90, 67, 0.3);
   }
-
-  /* 4. Textos Muted */
   .text-muted-foreground {
-    color: #8C7E74 !important; /* Taupe */
+    color: #8C7E74 !important;
   }
+}
+
+/* =========================================
+   TEMA DE GRADUACIÓN UAZ (RESTAURACIÓN)
+   ========================================= */
+.uaz-theme {
+  /* Fondo blanco puro y texto oscuro */
+  --background: 0 0% 100%;
+  --foreground: 220 65% 18%;
+
+  /* Azul Marino UAZ (Primary original) */
+  --primary: 220 57% 23%;
+  --primary-foreground: 0 0% 100%;
+
+  /* Dorado (Gold original) */
+  --gold: 43 65% 52%;
+  --gold-foreground: 220 57% 15%;
+
+  /* Secondary */
+  --secondary: 220 40% 96%;
+  --secondary-foreground: 220 57% 23%;
+
+  --muted: 220 20% 96%;
+  --muted-foreground: 220 15% 45%;
+  
+  --border: 220 20% 88%;
+  --glass-bg: 220 57% 23%; /* Base para el vidrio azulado */
+  
+  /* Resetear fuentes y bordes globales si es necesario */
+  --radius: 0.75rem;
+}
+
+/* Clases utilitarias específicas de la graduación */
+.uaz-theme .text-gold { color: hsl(43 65% 52%); }
+.uaz-theme .bg-gold { background-color: hsl(43 65% 52%); }
+.uaz-theme .border-gold { border-color: hsl(43 65% 52%); }
+
+.uaz-theme .gradient-navy {
+  background: linear-gradient(180deg, hsl(220 57% 23%) 0%, hsl(220 65% 12%) 100%);
+}
+
+.uaz-theme .gold-shimmer {
+  background: linear-gradient(90deg, hsl(43 65% 52%) 0%, hsl(43 80% 65%) 50%, hsl(43 65% 52%) 100%);
+  background-size: 200% 100%;
+  animation: shimmer 3s ease-in-out infinite;
+}
+
+/* Restaurar el estilo de tarjeta de vidrio azulado solo para UAZ */
+.uaz-theme .glass-card {
+  background: linear-gradient(135deg, hsl(220 57% 23% / 0.1), hsl(220 57% 23% / 0.05)) !important;
+  border-color: rgba(255, 255, 255, 0.2) !important;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37) !important;
+}
+
+/* Restaurar background noise si se usa */
+.uaz-theme .bg-noise {
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+}
+
+/* Asegurar que el canvas de partículas no bloquee el scroll */
+#tsparticlesfullpage {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none !important;
 }
