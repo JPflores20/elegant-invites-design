@@ -14,6 +14,8 @@ const XvInviteRed = lazy(() => import("./pages/XvInviteRed"));
 const BaptismInvite = lazy(() => import("./pages/BaptismInvite"));
 // IMPORTAR LA NUEVA PÁGINA
 const GraduationInvite = lazy(() => import("./pages/GraduationInvite"));
+const PartyInvite = lazy(() => import("./pages/PartyInvite"));
+const CorporateInvite = lazy(() => import("./pages/CorporateInvite"));
 
 const queryClient = new QueryClient();
 
@@ -43,6 +45,12 @@ const App = () => (
               
               {/* NUEVA RUTA DE GRADUACIÓN */}
               <Route path="/invitacion-graduacion" element={<GraduationInvite />} />
+              
+              {/* NUEVA RUTA DE FIESTA */}
+              <Route path="/invitacion-fiesta" element={<PartyInvite />} />
+              
+              {/* NUEVA RUTA CORPORATIVA */}
+              <Route path="/invitacion-corporativa" element={<CorporateInvite />} />
 
               {/* Ruta 404 */}
               <Route path="*" element={<NotFound />} />

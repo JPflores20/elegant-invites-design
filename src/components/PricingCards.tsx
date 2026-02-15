@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 const plans = [
   {
     name: "Plan Básico",
-    price: "$399",
+    price: "$349",
     currency: "MXN",
     description: "Perfecto para comenzar",
     features: [
@@ -14,11 +14,11 @@ const plans = [
       "Entrega en 48 horas",
     ],
     highlighted: false,
-    whatsappMessage: "Hola, me interesa el Plan Básico de invitaciones digitales de $399 MXN",
+    whatsappMessage: "Hola, me interesa el Plan Básico de invitaciones digitales de $349 MXN",
   },
   {
     name: "Plan Interactivo",
-    price: "$499",
+    price: "$449",
     currency: "MXN",
     description: "El más popular",
     features: [
@@ -30,11 +30,11 @@ const plans = [
       "Diseño responsivo",
     ],
     highlighted: true,
-    whatsappMessage: "Hola, me interesa el Plan Interactivo de invitaciones digitales de $499 MXN",
+    whatsappMessage: "Hola, me interesa el Plan Interactivo de invitaciones digitales de $449 MXN",
   },
   {
     name: "Plan Premium",
-    price: "$599",
+    price: "$499",
     currency: "MXN",
     description: "La experiencia completa",
     features: [
@@ -46,7 +46,7 @@ const plans = [
       "Soporte prioritario",
     ],
     highlighted: false,
-    whatsappMessage: "Hola, me interesa el Plan Premium de invitaciones digitales de $599 MXN",
+    whatsappMessage: "Hola, me interesa el Plan Premium de invitaciones digitales de $499 MXN",
   },
 ];
 

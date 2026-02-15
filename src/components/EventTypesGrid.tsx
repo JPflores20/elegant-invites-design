@@ -34,13 +34,15 @@ const events = [
     icon: PartyPopper, 
     title: "Fiestas", 
     desc: "Diversión total", 
-    color: "from-orange-400/20 to-red-400/20" 
+    color: "from-orange-400/20 to-red-400/20",
+    link: "/invitacion-fiesta" 
   },
   { 
     icon: Briefcase, 
     title: "Corporativos", 
     desc: "Imagen profesional", 
-    color: "from-slate-500/20 to-gray-500/20" 
+    color: "from-slate-500/20 to-gray-500/20",
+    link: "/invitacion-corporativa"
   },
 ];
 
